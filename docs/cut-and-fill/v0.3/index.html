@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e8e2d5">
+  <meta name="description" content="Cut & Fill 两分钟动态题库试玩">
+  <title>修好剩余道路｜动态题库</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game" aria-label="Cut & Fill 游戏">
+    <header class="status-bar" aria-label="本轮状态">
+      <div class="metric"><span>剩余时间</span><strong id="time-value">02:00</strong></div>
+      <div class="metric"><span>得分</span><strong id="score-value">0</strong></div>
+      <div class="metric"><span>等级</span><strong id="level-value">L1</strong></div>
+      <div class="metric progress-metric"><span>等级进度</span><strong id="progress-value">0 / 20</strong></div>
+      <div class="metric"><span>完成</span><strong id="completed-value">0 题</strong></div>
+      <div class="status-actions">
+        <button id="pause-button" class="utility-button" type="button">暂停</button>
+        <button id="reset-button" class="utility-button" type="button">重开本题</button>
+      </div>
+    </header>
+
+    <section class="play-area" aria-label="推土填坑游戏区">
+      <div class="board-stage">
+        <div
+          id="board"
+          class="board"
+          role="application"
+          tabindex="0"
+          aria-label="推土填坑游戏棋盘"
+        >
+          <img class="board-shell" src="assets/scene/board_shell_candidate.png" alt="">
+          <div id="board-layer" class="board-layer"></div>
+        </div>
+        <div class="instruction-row">
+          <button id="hint-button" class="hint-button" type="button" hidden>看看怎么走</button>
+        </div>
+      </div>
+
+      <p id="status" class="status" role="status" aria-live="polite">准备开始</p>
+    </section>
+  </main>
+
+  <aside id="debug-panel" class="debug-panel" hidden aria-label="动态题库验收信息">
+    <div><span>templateId</span><strong id="debug-template"></strong></div>
+    <div><span>实例 key</span><strong id="debug-instance"></strong></div>
+    <div><span>旋转角度</span><strong id="debug-orientation"></strong></div>
+    <div><span>墙体</span><strong id="debug-walls"></strong></div>
+    <div><span>等级 / 进度</span><strong id="debug-level"></strong></div>
+    <div><span>预期顺序</span><strong id="debug-order"></strong></div>
+  </aside>
+
+  <div id="pause-overlay" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="pause-title">
+    <div class="modal-card pause-card">
+      <h2 id="pause-title">游戏已暂停</h2>
+      <p>计时和操作都已停止。</p>
+      <button id="resume-button" type="button">继续游戏</button>
+    </div>
+  </div>
+
+  <div id="completion-modal" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="completion-title">
+    <div class="modal-card completion-card">
+      <h2 id="completion-title">本轮结束</h2>
+      <dl class="result-list">
+        <div><dt>总得分</dt><dd id="result-score">0</dd></div>
+        <div><dt>完成题数</dt><dd id="result-completed">0</dd></div>
+        <div><dt>结束等级</dt><dd id="result-level">L1</dd></div>
+      </dl>
+      <button id="replay-button" type="button">再玩一轮</button>
+    </div>
+  </div>
+
+  <script src="template-catalog.js"></script>
+  <script src="game-engine.js"></script>
+  <script src="dynamic-core.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
