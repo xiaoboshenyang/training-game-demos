@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" href="data:,">
+  <title>推土开路｜B版灰盒试玩 v0.2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar" aria-label="训练状态">
+      <div class="brand"><span class="brand-mark">推</span><strong>推土开路</strong><span class="candidate">B版试玩 v0.2</span></div>
+      <div class="stats">
+        <div><small>剩余时间</small><strong id="timeValue">02:00</strong></div>
+        <div><small>当前等级</small><strong id="levelValue">L1</strong></div>
+        <div><small>本局得分</small><strong id="scoreValue">0</strong></div>
+      </div>
+      <div class="top-actions">
+        <button id="soundButton" class="icon-button" type="button" aria-label="关闭背景音乐">♪</button>
+        <button id="pauseButton" class="icon-button" type="button" aria-label="暂停游戏">Ⅱ</button>
+        <button id="restartButton" class="text-button" type="button">重开本局</button>
+      </div>
+    </header>
+
+    <section class="game-stage" aria-label="推土开路游戏区">
+      <div class="question-meta" aria-live="polite">
+        <span id="questionId">准备开始</span>
+        <span id="questionDetail"></span>
+      </div>
+      <div id="boardFrame" class="board-frame" aria-label="棋盘">
+        <div id="board" class="board" role="grid"></div>
+        <div id="ghost" class="ghost" hidden></div>
+      </div>
+      <button id="hintButton" class="hint-button" type="button" hidden>看看怎么走</button>
+      <div id="feedback" class="feedback" role="status" aria-live="assertive"></div>
+    </section>
+
+    <aside id="controlPanel" class="control-panel" aria-label="试玩控制面板">
+      <button id="panelToggle" class="panel-toggle" type="button" aria-expanded="true">试玩设置</button>
+      <div class="panel-body">
+        <p class="mode-line">模式：<strong id="modeLabel">自动 · L1</strong></p>
+        <div class="level-buttons" role="group" aria-label="选择试玩等级">
+          <button type="button" data-mode="auto" class="active">自动</button>
+          <button type="button" data-level="1">L1</button><button type="button" data-level="2">L2</button>
+          <button type="button" data-level="3">L3</button><button type="button" data-level="4">L4</button>
+          <button type="button" data-level="5">L5</button><button type="button" data-level="6">L6</button>
+        </div>
+        <label>随机障碍强度 <output id="densityOutput">100%</output>
+          <input id="densityRange" type="range" min="50" max="150" step="10" value="100">
+          <small>下一题生效；50%偏少，150%偏多，始终在母题安全范围内。</small>
+        </label>
+        <label>提示等待 <output id="hintOutput">100%</output>
+          <input id="hintRange" type="range" min="50" max="150" step="10" value="100">
+          <small>当前题生效；100% = 10秒。</small>
+        </label>
+        <label>路线动画速度 <output id="speedOutput">100%</output>
+          <input id="speedRange" type="range" min="60" max="160" step="10" value="100">
+          <small>下一次动画生效；数值越高，移动越快。</small>
+        </label>
+        <button id="restoreButton" class="restore-button" type="button">恢复默认</button>
+      </div>
+    </aside>
+  </main>
+
+  <div id="startModal" class="modal-backdrop">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="startTitle">
+      <span class="eyebrow">本地机制验证</span>
+      <h1 id="startTitle">一笔把土推进坑里</h1>
+      <p>按住工程车，沿格子划出一条路线。路线先经过一块土，再到达任意空坑；松手后工程车会沿路线完成推土。</p>
+      <ul><li>只能上下左右移动</li><li>一笔只推一块土</li><li>绕开石墩、其他土块和空坑</li></ul>
+      <button id="startButton" class="primary-button" type="button">开始120秒试玩</button>
+    </section>
+  </div>
+
+  <div id="pauseModal" class="modal-backdrop" hidden>
+    <section class="modal-card compact" role="dialog" aria-modal="true"><h2>已暂停</h2><p>倒计时和操作都已暂停。</p><button id="resumeButton" class="primary-button" type="button">继续游戏</button></section>
+  </div>
+
+  <div id="resultModal" class="modal-backdrop" hidden>
+    <section class="modal-card result" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <span class="eyebrow">120秒训练结束</span><h2 id="resultTitle">本局完成</h2>
+      <div class="result-score"><small>最终得分</small><strong id="finalScore">0</strong></div>
+      <p id="resultSummary"></p><button id="playAgainButton" class="primary-button" type="button">再玩一局</button>
+    </section>
+  </div>
+
+  <audio id="bgm" src="audio/BGM-027_incompetech_bossabossa.mp3" loop preload="auto"></audio>
+  <script src="data/mothers.js"></script>
+  <script src="src/game-core.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>
