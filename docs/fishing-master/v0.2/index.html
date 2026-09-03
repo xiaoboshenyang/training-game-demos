@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>钓鱼大师｜可运行 Demo v0.2</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main id="app" aria-label="钓鱼大师训练游戏">
+    <header class="topbar" aria-label="游戏状态栏">
+      <div class="topbar__actions">
+        <button id="pause-button" class="control-button" type="button" disabled aria-label="暂停游戏">
+          <span class="control-button__icon" aria-hidden="true">Ⅱ</span>
+          <span class="control-button__label">暂停</span>
+        </button>
+      </div>
+
+      <div class="stat-group" aria-label="游戏数据">
+        <div class="stat stat--time">
+          <span class="stat__icon" aria-hidden="true">◷</span>
+          <span class="stat__label">时间</span>
+          <strong class="stat__value" data-stat="time">02:00</strong>
+        </div>
+        <div class="stat stat--level">
+          <span class="stat__icon" aria-hidden="true">▲</span>
+          <span class="stat__label">难度</span>
+          <strong class="stat__value" data-stat="level">1</strong>
+        </div>
+        <div class="stat stat--score">
+          <span class="stat__icon" aria-hidden="true">★</span>
+          <span class="stat__label">得分</span>
+          <strong class="stat__value" data-stat="score">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <section id="game-area" class="game-area" role="button" tabindex="0" aria-label="游戏水域，点击任意位置下钩">
+      <img class="game-area__background" src="./assets/generated-motion-v0.1-candidate/background-clean-v01.png" alt="平静湖面下的三层水域，底部有低矮珊瑚和礁石">
+      <div class="water-atmosphere" aria-hidden="true">
+        <span class="water-shaft water-shaft--left"></span>
+        <span class="water-shaft water-shaft--middle"></span>
+        <span class="water-shaft water-shaft--right"></span>
+        <span class="water-seam water-seam--upper"></span>
+        <span class="water-seam water-seam--lower"></span>
+        <span class="water-particle"></span><span class="water-particle"></span>
+        <span class="water-particle"></span><span class="water-particle"></span>
+        <span class="water-particle"></span><span class="water-particle"></span>
+        <span class="water-particle"></span><span class="water-particle"></span>
+        <span class="water-particle"></span><span class="water-particle"></span>
+        <span class="water-particle"></span><span class="water-particle"></span>
+        <span class="water-particle"></span><span class="water-particle"></span>
+      </div>
+      <div class="bubble-field" aria-hidden="true">
+        <span class="bubble-cluster bubble-cluster--left">
+          <i class="bubble"></i><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i>
+        </span>
+        <span class="bubble-cluster bubble-cluster--right">
+          <i class="bubble"></i><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i>
+        </span>
+        <span class="bubble-cluster bubble-cluster--deep-left">
+          <i class="bubble"></i><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i>
+        </span>
+        <span class="bubble-cluster bubble-cluster--deep-right">
+          <i class="bubble"></i><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i>
+        </span>
+      </div>
+      <div id="fishing-scene" class="fishing-scene" aria-hidden="true">
+        <div id="fisherman" class="fisherman" data-frame="0"></div>
+        <img class="boat-static" src="./assets/generated-motion-v0.2-candidate/boat-static-v02-candidate.png" alt="">
+      </div>
+      <div id="entity-layer" class="entity-layer" aria-hidden="true"></div>
+
+      <div id="hook-rig" class="hook-rig" aria-hidden="true">
+        <svg class="hook-line" viewBox="0 0 1280 728" preserveAspectRatio="none">
+          <path id="hook-line-path" class="hook-line__path" d=""></path>
+        </svg>
+        <span class="hook-visual"><img class="hook-image" src="./assets/hook.png" alt=""></span>
+        <span id="caught-fish" class="caught-fish" data-frame="1" hidden></span>
+      </div>
+
+      <img id="surface-ripple" class="surface-ripple" src="./assets/ripple.png" alt="" aria-hidden="true">
+      <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+      <div id="level-progress" class="level-progress" aria-label="升级进度">
+        <span class="level-progress__text">升级进度 0 / 50</span>
+        <span class="level-progress__track"><span class="level-progress__fill"></span></span>
+      </div>
+
+      <div id="start-panel" class="overlay overlay--start">
+        <div class="overlay__card">
+          <p class="overlay__eyebrow">观察 · 预判 · 点击</p>
+          <h1>钓鱼大师</h1>
+          <p>看准鱼儿经过中央鱼线的时机，点击水域下钩。避开鲨鱼，120 秒尽量多得分。</p>
+          <button id="start-button" class="primary-button" type="button">开始钓鱼</button>
+        </div>
+      </div>
+
+      <div id="pause-panel" class="overlay overlay--pause" hidden>
+        <div class="overlay__card overlay__card--small">
+          <h2>已暂停</h2>
+          <p>休息一下，点击顶部“继续”恢复游戏。</p>
+        </div>
+      </div>
+
+      <div id="result-dialog" class="overlay overlay--result" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
+        <div class="overlay__card result-card">
+          <p class="overlay__eyebrow">本次训练完成</p>
+          <h2 id="result-title">收获满满</h2>
+          <div class="result-score"><span>总得分</span><strong data-result="score">0</strong></div>
+          <div class="result-grid">
+            <span>钓到鱼 <strong data-result="total">0</strong> 条</span>
+            <span>大鱼 <strong data-result="big">0</strong></span>
+            <span>中鱼 <strong data-result="medium">0</strong></span>
+            <span>小鱼 <strong data-result="small">0</strong></span>
+          </div>
+          <button id="restart-button" class="primary-button" type="button">再玩一次</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
