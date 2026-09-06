@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>云上之旅｜本地试玩 Demo v0.3 · 新云版</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-labelledby="page-title">
+      <header class="game-toolbar">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">↟</span>
+          <div>
+            <h1 id="page-title">云上之旅</h1>
+            <p>本地试玩 · 六档递进版</p>
+          </div>
+        </div>
+
+        <div class="status-strip" aria-label="本局状态">
+          <div class="status-item">
+            <span class="status-label">时间</span>
+            <strong id="timer-value">02:00</strong>
+          </div>
+          <div class="status-item">
+            <span class="status-label">难度</span>
+            <strong id="level-value">L1</strong>
+          </div>
+          <div class="status-item score-item">
+            <span class="status-label">得分</span>
+            <strong id="score-value">0</strong>
+          </div>
+        </div>
+
+        <button id="pause-button" class="icon-button" type="button" disabled aria-label="暂停游戏">
+          <span aria-hidden="true">Ⅱ</span>
+          <span>暂停</span>
+        </button>
+      </header>
+
+      <section class="game-stage" aria-label="云上之旅游戏区">
+        <canvas
+          id="game-canvas"
+          width="1280"
+          height="728"
+          tabindex="0"
+          aria-label="游戏画面。按住鼠标、触摸屏幕或按住空格键上升，松开下降。"
+        ></canvas>
+
+        <div id="ready-panel" class="overlay-panel overlay-panel--visible">
+          <div class="start-card">
+            <p class="eyebrow">120 秒高度控制挑战</p>
+            <h2>穿过逆风云，收集指南针</h2>
+            <p class="lead">按住上升，松开下降。通过云障碍得 10 分，收集指南针得 30 分，碰撞扣 10 分。</p>
+
+            <div class="control-guide" aria-label="操作说明">
+              <div><span class="guide-icon">↥</span><strong>按住</strong><small>热气球上升</small></div>
+              <div><span class="guide-icon">↧</span><strong>松开</strong><small>热气球下降</small></div>
+            </div>
+
+            <label class="seed-field" for="seed-input">
+              <span>本局种子</span>
+              <input id="seed-input" inputmode="numeric" autocomplete="off" />
+              <small>相同种子会生成相同的随机序列，方便复现问题。</small>
+            </label>
+
+            <button id="start-button" class="primary-button" type="button">开始旅程</button>
+            <p id="run-mode-note" class="run-mode-note">正常试玩：120 秒</p>
+          </div>
+        </div>
+
+        <div id="countdown-panel" class="countdown-panel" aria-live="assertive" aria-atomic="true"></div>
+
+        <div id="pause-panel" class="overlay-panel" aria-hidden="true">
+          <div class="compact-card">
+            <p class="eyebrow">旅程暂停</p>
+            <h2>休息一下，云朵也停住了</h2>
+            <button id="resume-button" class="primary-button" type="button">继续旅程</button>
+            <button id="restart-from-pause" class="secondary-button" type="button">重新开始</button>
+          </div>
+        </div>
+
+        <div id="result-panel" class="overlay-panel" aria-hidden="true">
+          <div class="result-card">
+            <p class="eyebrow">本次旅程完成</p>
+            <h2 id="result-title">你完成了这段天空旅程</h2>
+            <div class="result-summary">
+              <div><span>总分</span><strong id="result-score">0</strong></div>
+              <div><span>最高难度</span><strong id="result-level">L1</strong></div>
+              <div><span>安全通过</span><strong id="result-passes">0</strong></div>
+              <div><span>收集指南针</span><strong id="result-coins">0</strong></div>
+              <div><span>碰撞</span><strong id="result-collisions">0</strong></div>
+              <div><span>随机种子</span><strong id="result-seed">—</strong></div>
+            </div>
+            <div class="result-actions">
+              <button id="replay-button" class="primary-button" type="button">同种子再玩</button>
+              <button id="new-seed-button" class="secondary-button" type="button">换一局</button>
+              <button id="export-button" class="text-button" type="button">导出本局记录</button>
+            </div>
+          </div>
+        </div>
+
+        <aside id="playtest-panel" class="playtest-panel playtest-panel--collapsed" aria-labelledby="playtest-title">
+          <button
+            id="playtest-toggle"
+            class="playtest-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="playtest-controls"
+          >
+            <span id="playtest-title">试玩控制</span>
+            <strong id="playtest-summary">自动 · L1</strong>
+            <span class="playtest-chevron" aria-hidden="true">⌄</span>
+          </button>
+
+          <div id="playtest-controls" class="playtest-controls">
+            <fieldset class="playtest-levels">
+              <legend>等级模式</legend>
+              <div class="level-switcher" aria-label="试玩等级">
+                <button type="button" data-playtest-level="auto" aria-pressed="true">自动</button>
+                <button type="button" data-playtest-level="1" aria-pressed="false">L1</button>
+                <button type="button" data-playtest-level="2" aria-pressed="false">L2</button>
+                <button type="button" data-playtest-level="3" aria-pressed="false">L3</button>
+                <button type="button" data-playtest-level="4" aria-pressed="false">L4</button>
+                <button type="button" data-playtest-level="5" aria-pressed="false">L5</button>
+                <button type="button" data-playtest-level="6" aria-pressed="false">L6</button>
+              </div>
+              <p id="playtest-mode-note">自动模式：按正式计分规则升降级。</p>
+            </fieldset>
+
+            <div class="playtest-sliders">
+              <label for="speed-percent">
+                <span>障碍速度 <small>立即生效</small></span>
+                <output id="speed-output" for="speed-percent">100%</output>
+              </label>
+              <input id="speed-percent" type="range" min="70" max="130" step="10" value="100" />
+
+              <label for="gap-percent">
+                <span>通道宽度 <small>下一组生效</small></span>
+                <output id="gap-output" for="gap-percent">100%</output>
+              </label>
+              <input id="gap-percent" type="range" min="80" max="120" step="10" value="100" />
+
+              <label for="frequency-percent">
+                <span>出现频率 <small>下一组生效</small></span>
+                <output id="frequency-output" for="frequency-percent">100%</output>
+              </label>
+              <input id="frequency-percent" type="range" min="70" max="130" step="10" value="100" />
+            </div>
+
+            <button id="playtest-reset" class="playtest-reset" type="button">恢复默认</button>
+            <p class="playtest-footnote">100% 代表当前等级的冻结值。重开保留，刷新复位。</p>
+          </div>
+        </aside>
+
+        <div id="feedback-layer" class="feedback-layer" aria-live="polite"></div>
+        <div class="hold-hint" aria-hidden="true"><span></span> 按住上升 · 松开下降</div>
+      </section>
+
+      <p id="live-status" class="sr-only" aria-live="polite"></p>
+    </main>
+
+    <script src="src/cloud-masks.js"></script>
+    <script src="src/game-core.js"></script>
+    <script src="src/game-session.js"></script>
+    <script src="src/renderer.js"></script>
+    <script src="src/app.js"></script>
+  </body>
+</html>
