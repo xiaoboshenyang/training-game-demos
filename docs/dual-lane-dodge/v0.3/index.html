@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>巧手避石 · 本地试玩</title><link rel="icon" href="data:,"><link rel="stylesheet" href="./styles.css"></head>
+<body>
+<main id="demo-layout">
+  <div class="play-column">
+  <section class="game" aria-label="巧手避石游戏">
+    <header class="toolbar"><h1>巧手避石</h1><div class="metrics"><span>时间 <strong id="time">02:00</strong></span><span>难度 <strong id="level">L1</strong></span><span>得分 <strong id="score">0</strong></span></div><button id="pause" disabled>暂停</button></header>
+    <div class="field" id="field">
+      <canvas id="canvas" width="1280" height="728" aria-label="两个圆石在各自道路内外移动，躲开下落的灰色障碍石"></canvas>
+      <div class="feedback-strip" id="feedback" aria-live="polite"></div>
+      <div class="controls" id="controls"><button id="left-control" aria-label="左侧：按住向左外移，松开回内侧"><span>左手按住</span></button><button id="right-control" aria-label="右侧：按住向右外移，松开回内侧"><span>右手按住</span></button></div>
+      <div class="overlay" id="overlay"><div class="dialog" role="dialog" aria-modal="false" aria-labelledby="dialog-title"><p class="eyebrow">两只手，各走各的路</p><h2 id="dialog-title">巧手避石</h2><p id="dialog-text">正在准备画面…</p><div id="dialog-extra"></div><button class="primary" id="start" disabled>准备中</button></div></div>
+    </div>
+    <footer class="game-footer"><span id="mode-label">自动 · L1</span><span id="progress">连续成功 0 / 6</span><span>按住外移，松开回内</span></footer>
+  </section>
+  <p class="keyboard-help">鼠标左键控制左侧、右键控制右侧，可同时按住 · 触屏按下方左右区域 · 键盘 A / D 或 ← / →</p>
+  <p class="version">本地试玩 v0.3 · 四款碎石 · A1 手绘素材 · 独立演示，未接入正式平台</p>
+  </div>
+  <div class="settings-column">
+    <button id="panel-toggle" class="panel-toggle" aria-expanded="true" aria-controls="trial-panel">收起调试看板</button>
+    <aside class="trial-panel" id="trial-panel" aria-labelledby="settings-title">
+      <h2 id="settings-title">试玩调节</h2>
+      <p class="panel-intro">锁级试调；100% 为本级基准，重开保留。</p>
+      <form id="settings-form">
+        <div class="setting-grid">
+          <label for="setting-mode">等级模式<select id="setting-mode"><option value="auto">自动升降级</option><option value="1">锁定 L1</option><option value="2">锁定 L2</option><option value="3">锁定 L3</option><option value="4">锁定 L4</option><option value="5">锁定 L5</option><option value="6">锁定 L6</option></select></label>
+          <label for="setting-speed">障碍速度 <output id="speed-value" for="setting-speed">100%</output><input id="setting-speed" type="range" min="50" max="200" step="5" value="100"><span class="range-hint">50% 慢 — 200% 快</span></label>
+          <label for="setting-frequency">出题频率 <output id="frequency-value" for="setting-frequency">100%</output><input id="setting-frequency" type="range" min="50" max="160" step="5" value="100"><span class="range-hint">50% 疏 — 160% 密</span></label>
+          <label for="setting-movement">横移速度 <output id="movement-value" for="setting-movement">100%</output><input id="setting-movement" type="range" min="80" max="140" step="5" value="100"><span class="range-hint">80% 慢 — 140% 快</span></label>
+        </div>
+        <div class="panel-actions"><button type="submit" id="apply-settings" class="primary">应用设置</button><button type="button" id="defaults">恢复默认</button></div>
+        <p id="settings-status" role="status">修改后点击“应用设置”。</p>
+      </form>
+      <div class="applied-summary"><h3>当前已应用</h3><p id="applied-settings">自动 · L1 · 障碍 100% · 频率 100% · 横移 100%</p><p id="pending-settings" hidden></p><p class="subtle">旧行按原设置走完，清场后从下一行生效。暂停时先继续才能清场。</p></div>
+      <div class="calibration-summary"><h3>本组观察</h3><p>当前级目标 <strong id="target-rate">基础可完成</strong></p><p class="actual-rate"><strong id="actual-rate">—</strong><span>实际单行通过率</span></p><p id="sample-count">已结算 0 行：成功 0 / 失误 0</p><p id="calibration-settings" class="subtle"></p><p id="sample-note" class="subtle">样本较少，仅供观察</p><p class="subtle">目标是待试玩验证的难度方向；自动模式仍按连续成功 6 行升级、连续失败 3 行降级。</p></div>
+    </aside>
+  </div>
+</main><script type="module" src="./app.mjs"></script>
+</body></html>
+

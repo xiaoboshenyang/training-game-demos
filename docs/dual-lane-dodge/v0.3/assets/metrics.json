@@ -1,0 +1,125 @@
+{
+  "background.png": {
+    "width": 1663,
+    "height": 946,
+    "mode": "RGB",
+    "alpha_extrema": [
+      255,
+      255
+    ],
+    "transparent_fraction": 0.0,
+    "partial_alpha_fraction": 0.0,
+    "visible_bbox": [
+      0,
+      0,
+      1663,
+      946
+    ],
+    "sha256": "4da7428fbfe9208944edcfa982c2e3d02e405779e7d2ec4967d7e4967b7750b9"
+  },
+  "player_stone.png": {
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "transparent_fraction": 0.64491,
+    "partial_alpha_fraction": 0.35491,
+    "visible_bbox": [
+      220,
+      195,
+      1068,
+      1037
+    ],
+    "sha256": "29f86902d502f6f4e71566587b6d82bbb5fdd0e30f07fe264c0594f161871edf"
+  },
+  "obstacle_rock.png": {
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "transparent_fraction": 0.64039,
+    "partial_alpha_fraction": 0.35888,
+    "visible_bbox": [
+      136,
+      212,
+      1168,
+      996
+    ],
+    "sha256": "7dfe2223582eb50160227c99214d658bd56f052afefe7a9b8bc8b4167ff4dfd1"
+  },
+  "finger.png": {
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "transparent_fraction": 0.60325,
+    "partial_alpha_fraction": 0.39675,
+    "visible_bbox": [
+      233,
+      145,
+      783,
+      1415
+    ],
+    "sha256": "a24090c1cbf8845d5ee415ed3497e6949182b899fa5c58dcdef2b457359d64cd"
+  },
+  "obstacle_flat.png": {
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "visible_bbox": [
+      23,
+      55,
+      1514,
+      976
+    ],
+    "source_anchor": [
+      768.5,
+      515.5
+    ],
+    "display_width": 112,
+    "circle34_min_alpha": 210
+  },
+  "obstacle_rounded.png": {
+    "width": 1430,
+    "height": 1100,
+    "mode": "RGBA",
+    "visible_bbox": [
+      162,
+      133,
+      1271,
+      942
+    ],
+    "source_anchor": [
+      716.5,
+      537.5
+    ],
+    "display_width": 104,
+    "circle34_min_alpha": 252
+  },
+  "obstacle_chipped.png": {
+    "width": 1330,
+    "height": 1182,
+    "mode": "RGBA",
+    "visible_bbox": [
+      70,
+      29,
+      1268,
+      1109
+    ],
+    "source_anchor": [
+      669.0,
+      569.0
+    ],
+    "display_width": 104,
+    "circle34_min_alpha": 252
+  }
+}
