@@ -1,0 +1,22 @@
+.ou-scene{height:100%;width:100%;min-height:0;display:grid;grid-template-columns:44% 56%;overflow:hidden;background:#fcf7eb;color:#132954;font-family:"Microsoft YaHei","PingFang SC",sans-serif;border-radius:28px;position:relative}
+.ou-scene *{box-sizing:border-box}.ou-customer-area{position:relative;overflow:hidden;min-width:0;background:linear-gradient(100deg,#f7eddb,#fffaf0)}
+.ou-arch{position:absolute;inset:7% 12% 7%;border-radius:180px 180px 20px 20px;background:linear-gradient(130deg,#91b8d6,#d8e9f1 70%);border:14px solid #e6ebdf;box-shadow:inset 8px 7px 18px #698ca440,0 0 18px #fff}
+.ou-arch:after{content:"";position:absolute;inset:15% 16%;border-bottom:12px solid #efeee3;border-top:12px solid #efeee3;opacity:.65}
+.ou-customer{position:absolute;width:98%;height:83%;object-fit:contain;object-position:center bottom;bottom:5%;left:1%;z-index:2}
+.ou-bubble{position:absolute;z-index:3;right:4%;top:5%;max-width:88%;margin:0;padding:18px 23px;background:linear-gradient(#fff,#f7fbff);border:2px solid #fff;border-radius:26px;color:#20385c;font-size:25px;font-weight:700;box-shadow:0 4px 9px #34526c21}
+.ou-bubble:after{content:"";position:absolute;bottom:-12px;left:24px;border-top:15px solid #f7fbff;border-right:17px solid transparent}
+.ou-counter{position:absolute;bottom:0;left:0;right:0;height:7%;z-index:4;background:linear-gradient(#fffaf0,#e2d6bc);border-top:5px solid #fffdf8;box-shadow:0 -4px 12px #96775015}
+.ou-panel-frame{min-width:0;min-height:0;margin:18px 20px 18px 0;padding:13px;border-radius:40px;background:linear-gradient(135deg,#ddf4ff,#a7cfe9);box-shadow:inset 4px 4px 7px #fff, inset -4px -5px 10px #729bb86b,0 5px 10px #7098b03b}
+.ou-panel{height:100%;display:flex;flex-direction:column;gap:10px;padding:21px 24px 20px;background:linear-gradient(120deg,#fffefb,#f5f7f7);border:4px solid #e5f3fa;border-radius:29px;box-shadow:inset 2px 3px 10px #7194b130}
+.ou-heading{text-align:center;flex:none}.ou-heading h1{font-size:36px;line-height:1.25;margin:0 0 5px;font-weight:800;letter-spacing:1px}
+.ou-instruction{font-size:21px;color:#526780;margin:6px 0 7px}.ou-score{font-size:23px;color:#526780;margin:4px 0}.ou-score strong{font-size:31px;color:#207fc0}
+.ou-order-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;justify-content:center;gap:10px;flex:1;min-height:0}
+.ou-order-row{min-height:72px;max-height:116px;flex:1;display:flex;align-items:center;gap:14px;padding:7px 18px;background:linear-gradient(125deg,#fff,#f4f5f2);border:2px solid #fff;border-radius:20px;box-shadow:0 3px 6px #5265770a;min-width:0}
+.ou-fruit{width:76px;height:76px;object-fit:contain;flex:none}.ou-fruit-name{font-size:27px;font-weight:700;flex:1;white-space:nowrap}.ou-quantity{font-size:31px;white-space:nowrap}
+.ou-many .ou-order-row{min-height:59px;padding-top:3px;padding-bottom:3px}.ou-many .ou-fruit{width:59px;height:59px}.ou-many .ou-fruit-name{font-size:25px}.ou-many .ou-quantity{font-size:28px}
+.ou-row-state{font-size:21px;font-weight:700;min-width:44px;text-align:center}.ou-correct{color:#2392be;font-size:33px}.ou-short{color:#ba4c5b}
+.ou-footer{flex:none;display:flex;flex-direction:column;gap:9px}.ou-action{width:100%;min-height:66px;border-radius:24px;border:2px solid #ef7f8d;box-shadow:inset 0 4px 4px #ffbcc0,inset 0 -4px 7px #962c3d66,0 4px 7px #69233724;background:linear-gradient(#e35267,#c9344c);color:white;font:800 30px/1.2 inherit;font-family:inherit;font-size:30px;font-weight:800;cursor:pointer;touch-action:manipulation}
+.ou-action:hover{filter:brightness(1.06)}.ou-action:active{transform:translateY(2px)}.ou-action:focus-visible{outline:4px solid #156aa1;outline-offset:3px}.ou-action:disabled{opacity:.7;cursor:default}
+.ou-wrong{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:18px;color:#9d4051}.ou-wrong-label{font-weight:700}.ou-wrong-chip{display:inline-flex;align-items:center;gap:3px;white-space:nowrap}.ou-wrong-chip .ou-fruit{width:30px;height:30px}.ou-level-message{text-align:center;font-size:19px;color:#526780;margin:0}
+@media(max-width:900px){.ou-panel{padding:16px 13px;gap:8px}.ou-panel-frame{padding:9px;margin:12px 12px 12px 0}.ou-heading h1{font-size:29px}.ou-fruit-name,.ou-many .ou-fruit-name{font-size:21px}.ou-quantity,.ou-many .ou-quantity{font-size:24px}.ou-order-row{padding-left:8px;padding-right:8px;gap:8px}.ou-bubble{font-size:20px;padding:13px}.ou-instruction{font-size:18px}}
+
