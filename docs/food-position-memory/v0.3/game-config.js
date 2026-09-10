@@ -1,0 +1,1 @@
+export const config={title:'美食归位',icon:'assets/icon.png',background:'assets/textures/pale_oak.png',clock:'external',feedbackDurationMs:2000};
