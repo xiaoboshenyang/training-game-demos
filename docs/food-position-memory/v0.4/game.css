@@ -1,0 +1,27 @@
+.food-game{height:100%;box-sizing:border-box;padding:18px 55px 22px;display:flex;flex-direction:column;gap:12px;color:#503725;font-family:Arial,"Microsoft YaHei",sans-serif}.food-game h2{font-size:27px;margin:0;text-align:center}.food-game p{font-size:20px;margin:0;text-align:center}.food-tables{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:32px}.food-tray{background:#fff9e7dd;border:3px solid #bd8f59;border-radius:24px;padding:15px;display:flex;flex-direction:column;gap:10px;min-height:0}.food-tray h3{font-size:22px;margin:0;text-align:center}.food-grid{display:grid;gap:10px;flex:1;min-height:0;grid-template-columns:repeat(var(--cols),1fr);grid-template-rows:repeat(var(--rows),1fr)}.food-cell{min-height:0;position:relative;border:2px solid #d3ba8b;border-radius:15px;background:#fffdf2;cursor:pointer;overflow:hidden;padding:5px;color:#503725;font-size:19px}.food-cell:disabled{opacity:1;cursor:default}.food-cell.selected{outline:5px solid #ed921f;outline-offset:-5px}.food-art{height:100%;width:100%;pointer-events:none}.food-pos{position:absolute;left:7px;top:4px;font-size:15px;color:#806d54}.food-ref{position:absolute;right:0;bottom:0;width:42%;height:42%;background:#fff8;border:1px dashed #bca}.food-actions{height:56px;display:flex;justify-content:center;align-items:center;gap:18px}.food-actions button{padding:12px 24px;border:0;border-radius:14px;background:#92532d;color:white;font-size:22px;cursor:pointer}.food-actions button:disabled{opacity:.4;cursor:default}.food-wait{display:flex;align-items:center;justify-content:center;height:100%;font-size:25px;line-height:1.8;text-align:center}
+
+html,body{margin:0;width:100%;height:100%;overflow:hidden}#app{position:relative;width:100vw;height:100vh}#settings{position:fixed;bottom:6px;right:8px;z-index:1000;background:#fff9ee;border:1px solid #c5ac81;border-radius:9px;padding:8px;font:14px 'Microsoft YaHei';max-width:320px}#settings summary{cursor:pointer}#settings label{display:block;margin:10px}#settings p{font-size:12px}#settings button{padding:8px;margin:5px}#ghost{display:none;position:fixed;z-index:2000;pointer-events:none;width:100px;height:100px;transform:translate(-50%,-50%)}.food-cell{touch-action:none}.food-actions span{font-size:22px}.food-game{padding-bottom:30px}
+
+/* Fixed positions across memory and placement phases. */
+
+
+.food-ref{box-sizing:border-box;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;border:0;background:transparent;padding:10px;gap:6px}
+.food-ref.reference-full{inset:0;width:100%;height:100%;opacity:.68}
+.food-ref.reference-small{inset:auto 5px 5px auto;width:44%;height:auto;aspect-ratio:1;max-height:48%;background:#fff9e7;border:1px dashed #aa7e45;border-radius:9px;padding:4px;gap:2px}
+.food-ref .reference-label{font-size:16px;line-height:1.2;color:#77552e;flex:none}
+.food-ref .food-art{height:auto;min-height:0;flex:0 1 auto;max-height:72%;width:90%}
+.food-ref.reference-small .reference-label{font-size:12px}
+.food-ref.reference-small .food-art{flex:1;max-height:70%;width:100%}
+
+/* A single opaque cover keeps the food hidden until recall starts. */
+.candidate-tray{position:relative}
+.food-cover{position:absolute;inset:54px 14px 14px;z-index:2;border:3px solid #c39b66;border-radius:42px 42px 20px 20px;background:linear-gradient(130deg,#fffdf0 0%,#f4e5c4 58%,#e7c999 100%);box-shadow:inset 0 0 0 7px #fff8,0 7px 0 #bc905a44;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#684628}
+.food-cover:after{content:'';position:absolute;inset:15px;border:1px solid #c9a57266;border-radius:29px 29px 12px 12px;pointer-events:none}
+.cover-handle{width:78px;height:20px;border:5px solid #a77c48;border-bottom-width:8px;border-radius:20px;background:#eed9b1;box-shadow:0 5px 8px #946b4133;margin-bottom:36px}
+.cover-copy{display:flex;flex-direction:column;align-items:center;gap:16px;z-index:1}
+.cover-copy strong{font-size:28px}.cover-copy p{font-size:22px}
+.cover-copy button{margin-top:12px;padding:16px 38px;border:2px solid #7d4426;border-radius:16px;background:#92532d;color:white;font-size:25px;font-weight:bold;cursor:pointer;box-shadow:0 4px 0 #703b22}
+.cover-copy button:focus-visible{outline:4px solid #e99a24;outline-offset:4px}
+.cover-opening{pointer-events:none;animation:uncover-food .3s ease-out forwards}
+@keyframes uncover-food{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-12px)}}
+@media(prefers-reduced-motion:reduce){.cover-opening{animation-duration:.01s}}
