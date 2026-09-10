@@ -1,0 +1,24 @@
+/* C深底亮牌 v1.0：程序化视觉素材。 */
+:root{--canvas:#172b34;--panel:#213b46;--ink:#fff9e8;--muted:#d5e0e3;--tile:#fff9e8;--number:#172b34;--accent:#f7cc65;--success:#155437;--error:#972d28;color:var(--ink);background:#0d1b21}
+body{background:#0d1b21}
+.game-shell{background:var(--canvas);box-shadow:none}
+header{background:var(--canvas);border-bottom:2px solid #708992;box-shadow:none}
+h1{font-size:32px}h2{font-size:44px}
+.status{font-size:24px}.status span+span{border-color:#708992}
+button{background:var(--accent);color:var(--number);border:2px solid var(--accent);border-radius:8px;box-shadow:none;font-size:30px}
+button.small{background:transparent;color:var(--ink);border:2px solid var(--muted);border-radius:6px}
+button:focus-visible,select:focus-visible,summary:focus-visible{outline:4px solid var(--accent);outline-offset:4px}
+.heading{height:120px;padding-top:16px}.heading p{color:var(--muted);font-size:26px}
+.board{background:var(--panel);border:2px solid #a3b8c1;border-radius:12px;box-shadow:none;padding:12px;gap:12px}
+.cell,.cell.empty{background:var(--tile);color:var(--number);border:3px solid var(--tile);border-radius:8px;box-shadow:none;text-shadow:none;font-family:Arial,"Microsoft YaHei",sans-serif;font-size:64px;font-weight:700}
+.cell:disabled{opacity:1}
+.cell.done{background:var(--success);color:var(--ink);border:3px solid var(--ink)}
+.cell.done::after{color:var(--ink);font-size:26px;right:7px;top:5px;bottom:auto}
+.cell.wrong{background:var(--error);color:var(--ink);border:3px solid var(--ink);outline:none}
+.cell.wrong::after{background:var(--error);color:var(--ink);border-radius:0;font-size:26px;right:5px;top:5px;bottom:auto;width:26px;line-height:26px}
+.actions{height:84px;padding-top:10px}.actions button#help{font-size:30px}
+.message{font-size:23px;line-height:30px;height:auto;color:var(--muted);max-width:1160px}
+.overlay{background:#172b34f5;backdrop-filter:none}.dialog{background:var(--panel);color:var(--ink);border:2px solid #a3b8c1;box-shadow:none;border-radius:12px}
+.level-scores{color:var(--muted)}.control-panel{background:#10232c;color:var(--muted);border-color:#708992}
+.control-fields select{background:var(--tile);color:var(--number);border:2px solid #a3b8c1}
+@keyframes gentle{50%{box-shadow:0 0 0 6px #f7cc65}}
