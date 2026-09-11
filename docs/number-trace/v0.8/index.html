@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数字寻踪 · 公共模板试玩 v0.8</title><link rel="stylesheet" href="public-template/template.css"><link rel="stylesheet" href="game.css"></head><body>
+<div id="mount"></div>
+<details class="control-panel"><summary>试玩设置 <span id="setting-summary"></span></summary><div class="control-fields">
+<label>等级模式 <select id="mode"><option value="auto">自动升降级</option><option value="1">锁定 L1 · 4 数</option><option value="2">锁定 L2 · 5 数</option><option value="3">锁定 L3 · 6 数</option><option value="4">锁定 L4 · 7 数</option><option value="5">锁定 L5 · 8 数</option><option value="6">锁定 L6 · 10 数</option></select></label>
+<label>求助提醒延迟 <input id="reminder" type="range" min="50" max="200" step="25" value="100"><output id="reminder-value"></output></label>
+<label>升级所需连对题数 <input id="upgrade" type="range" min="50" max="200" step="50" value="100"><output id="upgrade-value"></output></label><button id="defaults">恢复默认</button></div>
+<p>计分：整题完成得分；使用“再看一眼”后得分减半；点错结束本题，不扣已有分。</p><p>等级切换从下一题生效；提醒延迟立即生效，升级门槛从本题结算生效。锁定等级时不自动升降。重开保留设置，刷新恢复默认。</p></details>
+<script src="engine.js"></script><script type="module" src="app.js"></script></body></html>
