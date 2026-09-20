@@ -127,34 +127,14 @@ export const BANK = [
       0.2017
      ]
     ]
-   },
-   {
-    "id": "D04",
-    "text": "柜台工作人员胸前名牌由白色改为黄色",
-    "rect": [
-     0.7,
-     0.385,
-     0.75,
-     0.43
-    ],
-    "hits": [
-     [
-      0.7,
-      0.385,
-      0.75,
-      0.43
-     ]
-    ],
-    "added": true
    }
   ],
-  "source": "题目标注试玩+用户反馈修订",
+  "source": "题目标注试玩+用户反馈修订；取消D04(恢复图片)并贴回A图",
   "sha": {
    "a": "d3b76fdf2235b4c106bed99b776c45c9b7a7c2beaa3d84e497a568a3670fdeec",
-   "b": "266a0e4734ad8b5d5489e234455de692429c1ca125688572cdb3a2c02cfb62d2"
+   "b": "35a293de0b67f12209f2eb82c242635ce9f2169d42b55f3ba86aff4f1e0de582"
   },
-  "level": 1,
-  "pendingLevel": true
+  "level": 1
  },
  {
   "id": "ADD0920-L1-01",

@@ -9,6 +9,16 @@ const COMPLETE_DELAY_MS = 700;   // 最后一处浮字可见后再出公共成�
 const DRAG_PX = 16;               // 按下到抬起移动超过此距离视为拖动，不算作答
 
 const $ = s => document.querySelector(s);
+
+// —— 单款音频：背景音乐 BGM-045、点错音效 SFX-01（均为已选定素材，音量为试玩暂定值）——
+const BGM_VOLUME = 0.28, SFX_VOLUME = 0.5;
+const bgm = new Audio('assets/audio/bgm-045.mp3');
+bgm.loop = true; bgm.volume = BGM_VOLUME; bgm.preload = 'auto';
+const missSfx = new Audio('assets/audio/sfx-01-miss.mp3');
+missSfx.volume = SFX_VOLUME; missSfx.preload = 'auto';
+let audioOn = true;
+const playBgm = () => { if (audioOn) bgm.play().catch(() => {}); };   // 未解锁时静默失败，首次点击再补
+const playMiss = () => { if (!audioOn) return; missSfx.currentTime = 0; missSfx.play().catch(() => {}); };
 let api, engine, remaining = FROZEN.roundMs, pendingComplete = 0, speed = 1, root, showBoxes = false;
 const LEVEL_NAME = ['基础', '初阶', '中阶', '高阶', '超凡', '宗师'];
 
@@ -92,6 +102,7 @@ function onTap(pic, e) {
   if (x < 0 || x > 1 || y < 0 || y > 1) return;
   const res = engine.click(x, y);
   if (DEBUG) console.debug('[火眼金睛] tap', { x: +x.toFixed(4), y: +y.toFixed(4), ...res });
+  if (res.type === 'miss') playMiss();
   if (res.type !== 'found') { renderPanelStatus(); return; }
   api.update({ score: engine.state.score });
   floatScore(pic, x, y, res.award);
@@ -127,7 +138,7 @@ function loop(now) {
 }
 
 function finishRound() {
-  engine.end(); pendingComplete = 0;
+  engine.end(); pendingComplete = 0; bgm.pause();
   const r = engine.result();
   window.__fdLastResult = r;
   console.info('[火眼金睛] 本局结果', JSON.stringify(r));
@@ -137,10 +148,11 @@ function finishRound() {
 
 createGameShell({
   mount: $('#mount'), mode: 'playtest',
-  config: { title: '火眼金睛', clock: 'external', feedbackDurationMs: 1500, templateVersion: '1.2.1' },
+  config: { title: '火眼金睛', icon: 'assets/icon/icon-512.png', clock: 'external', feedbackDurationMs: 1500, templateVersion: '1.2.1' },
   adapter: {
     mount({ container, api: a }) {
       api = a; root = container; container.innerHTML = surfaceHtml;
+      document.addEventListener('pointerdown', () => { if (api.getState().state === 'game') playBgm(); }, { once: true });
       container.querySelectorAll('.fd-picture').forEach(pic => {
         let down = null;
         pic.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY, id: e.pointerId }; });
@@ -157,11 +169,11 @@ createGameShell({
       });
     },
     start() {
-      remaining = FROZEN.roundMs; pendingComplete = 0; engine.reset();
+      remaining = FROZEN.roundMs; pendingComplete = 0; engine.reset(); playBgm();
       api.update({ score: 0, level: engine.state.level, remainingMs: remaining });
       renderQuestion();
     },
-    pause() {}, resume() { last = performance.now(); },
+    pause() { bgm.pause(); }, resume() { last = performance.now(); playBgm(); },
     getResult: () => engine.result(),
   },
 });
@@ -207,6 +219,10 @@ $('#skip').addEventListener('click', () => forceQuestion(() => engine.skip()));
 $('#restart').addEventListener('click', () => api.start(true));
 $('#speed').addEventListener('change', e => { speed = Number(e.target.value); });
 $('#jump5').addEventListener('click', () => { remaining = Math.min(remaining, 5000); });
+$('#sound').addEventListener('change', e => {
+  audioOn = e.target.checked;
+  if (!audioOn) bgm.pause(); else if (api.getState().state === 'game') playBgm();
+});
 $('#showbox').addEventListener('click', e => {
   showBoxes = !showBoxes;
   e.currentTarget.textContent = showBoxes ? '隐藏判定框' : '显示所有判定框';

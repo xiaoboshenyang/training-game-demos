@@ -1,4 +1,4 @@
-// 火眼金睛 v0.4 玩法引擎：纯状态，不碰 DOM，便于 node 单测。
+// 火眼金睛 v0.5 玩法引擎：纯状态，不碰 DOM，便于 node 单测。
 export const LEVEL_LABELS = ['基础', '初阶', '中阶', '高阶', '超凡', '宗师'];
 export const DIFF_COUNT = [3, 5, 6, 7, 8, 9];
 export const FROZEN = { roundMs: 120000, pointsBefore: 20, pointsAfter: 10, upgradeStreak: 2, hintMs: 10000, minHit: 0.09 };
@@ -24,7 +24,7 @@ export function createEngine({ bank, seed = Date.now(), settings = {} }) {
 
   const upgradeNeed = () => Math.max(1, Math.round(FROZEN.upgradeStreak * s.upgradePct / 100));
   const hintMs = () => FROZEN.hintMs * s.hintPct / 100;
-  // 每处分值：100% = 冻结值（查看前 10 分、查看后 5 分）
+  // 每处分值：100% = v0.5 冻结值（查看前 20 分、查看后 10 分）
   const points = shown => Math.round((shown ? FROZEN.pointsAfter : FROZEN.pointsBefore) * s.scorePct / 100);
 
   function reset() {
