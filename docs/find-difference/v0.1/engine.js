@@ -19,16 +19,19 @@ export function hitBoxes(answer, scale = 1, minHit = FROZEN.minHit) {
 
 export function createEngine({ bank, seed = Date.now(), settings = {} }) {
   const rng = mulberry32(seed);
-  const s = { hintPct: 100, hitPct: 100, upgradePct: 100, lock: null, ...settings };
+  const s = { hintPct: 100, hitPct: 100, upgradePct: 100, scorePct: 100, lock: null, ...settings };
   let st;
 
   const upgradeNeed = () => Math.max(1, Math.round(FROZEN.upgradeStreak * s.upgradePct / 100));
   const hintMs = () => FROZEN.hintMs * s.hintPct / 100;
+  // 每处分值：100% = 冻结值（查看前 10 分、查看后 5 分）
+  const points = shown => Math.round((shown ? FROZEN.pointsAfter : FROZEN.pointsBefore) * s.scorePct / 100);
 
   function reset() {
     st = { level: s.lock ?? 1, score: 0, streak: 0, highest: s.lock ?? 1, q: null, found: new Set(), answerShown: false,
       before: 0, after: 0, idle: 0, hint: false, settled: null, used: new Set(), history: [], lastUsedAt: {}, seq: 0,
-      levels: LEVEL_LABELS.map((label, i) => ({ level: i + 1, label, score: 0, clears: 0, errors: 0 })), ended: false };
+      // clears=自己找到的处数（不含看答案后点的）；errors=用了答案的题数；misses（误点）只进开发日志
+      levels: LEVEL_LABELS.map((label, i) => ({ level: i + 1, label, score: 0, clears: 0, errors: 0, afterHits: 0, misses: 0, questions: 0, completed: 0 })), ended: false };
     load(st.level);
   }
 
@@ -45,6 +48,7 @@ export function createEngine({ bank, seed = Date.now(), settings = {} }) {
     const { q, repeat } = pick(level);
     st.level = level; st.highest = Math.max(st.highest, level);
     st.q = q; st.found = new Set(); st.answerShown = false; st.before = 0; st.after = 0; st.idle = 0; st.hint = false; st.settled = null;
+    st.levels[level - 1].questions++;
     st.used.add(q.id); st.lastUsedAt[q.id] = st.seq++;
     st.history.push({ id: q.id, level, repeat, answerUsed: false, before: 0, after: 0, misses: 0, completed: false });
     if (repeat) console.warn(`[火眼金睛] L${level} 新题已用完，重复出题 ${q.id}`);
@@ -69,11 +73,12 @@ export function createEngine({ bank, seed = Date.now(), settings = {} }) {
   function click(x, y) {
     if (st.ended || st.settled) return { type: 'ignored' };
     const a = locate(x, y);
-    if (!a) { st.levels[st.level - 1].errors++; cur().misses++; return { type: 'miss' }; }
+    if (!a) { st.levels[st.level - 1].misses++; cur().misses++; return { type: 'miss' }; }
     if (st.found.has(a.id)) return { type: 'dup', id: a.id };
-    const award = st.answerShown ? FROZEN.pointsAfter : FROZEN.pointsBefore;
+    const award = points(st.answerShown);
     st.found.add(a.id); st.score += award; st.levels[st.level - 1].score += award;
-    if (st.answerShown) { st.after++; cur().after++; } else { st.before++; cur().before++; }
+    if (st.answerShown) { st.after++; cur().after++; st.levels[st.level - 1].afterHits++; }
+    else { st.before++; cur().before++; st.levels[st.level - 1].clears++; }
     st.idle = 0; st.hint = false;
     const res = { type: 'found', id: a.id, award, complete: st.found.size === st.q.answers.length };
     if (res.complete) res.settle = settle();
@@ -83,7 +88,7 @@ export function createEngine({ bank, seed = Date.now(), settings = {} }) {
   // 完成当前题：结算升降级，但等级在换题时才生效
   function settle() {
     const h = cur(); h.completed = true; h.answerUsed = st.answerShown;
-    st.levels[st.level - 1].clears++;
+    st.levels[st.level - 1].completed++;
     let next = st.level;
     if (st.answerShown) { st.streak = 0; next = Math.max(1, st.level - 1); }
     else if (++st.streak >= upgradeNeed()) { st.streak = 0; next = Math.min(6, st.level + 1); }
@@ -101,6 +106,7 @@ export function createEngine({ bank, seed = Date.now(), settings = {} }) {
   function showAnswer() {
     if (st.ended || st.settled || st.answerShown) return false;
     st.answerShown = true; st.streak = 0; st.hint = false; cur().answerUsed = true;
+    st.levels[st.level - 1].errors++;   // 软失败＝用了答案的题数
     return true;
   }
 
@@ -136,6 +142,6 @@ export function createEngine({ bank, seed = Date.now(), settings = {} }) {
   function skip() { if (st.ended) return false; st.settled = null; load(s.lock ?? st.level); return true; }
 
   reset();
-  return { reset, click, showAnswer, tick, advance, end, result, setSettings, locate, goto, skip,
+  return { reset, click, showAnswer, tick, advance, end, result, setSettings, locate, goto, skip, points,
     get state() { return st; }, get settings() { return { ...s }; }, upgradeNeed, hintMs };
 }

@@ -173,7 +173,8 @@ $('#pick').innerHTML = BANK.map(q => `<option value="${q.id}">L${q.level} ${LEVE
 
 function applyPanel() {
   const lockVal = $('#lock').value;
-  engine.setSettings({ lock: lockVal === 'auto' ? null : Number(lockVal), hintPct: pct('hintPct'), hitPct: pct('hitPct'), upgradePct: pct('upgradePct') });
+  engine.setSettings({ lock: lockVal === 'auto' ? null : Number(lockVal), hintPct: pct('hintPct'), hitPct: pct('hitPct'), upgradePct: pct('upgradePct'), scorePct: pct('scorePct') });
+  $('#scorePct-v').textContent = `${pct('scorePct')}%（每处 ${engine.points(false)} 分，看答案后 ${engine.points(true)} 分）`;
   $('#hintPct-v').textContent = `${pct('hintPct')}%（${engine.hintMs() / 1000} 秒）`;
   $('#hitPct-v').textContent = `${pct('hitPct')}%`;
   $('#upgradePct-v').textContent = `${pct('upgradePct')}%（连续 ${engine.upgradeNeed()} 题）`;
@@ -184,7 +185,7 @@ function renderPanelStatus() {
   if (!engine?.state?.q) return;
   const st = engine.state, cfg = engine.settings, h = st.history.at(-1);
   const std = DIFF_COUNT[st.level - 1], real = st.q.answers.length;
-  $('#setting-summary').textContent = `${cfg.lock ? '锁定 L' + cfg.lock : '自动'} · 当前 L${st.level}（本题 ${real} 处${real === std ? '' : '，六级表为 ' + std + ' 处'}） · 提醒${cfg.hintPct}% · 判定${cfg.hitPct}% · 升级${cfg.upgradePct}%`;
+  $('#setting-summary').textContent = `${cfg.lock ? '锁定 L' + cfg.lock : '自动'} · 当前 L${st.level}（本题 ${real} 处${real === std ? '' : '，六级表为 ' + std + ' 处'}） · 提醒${cfg.hintPct}% · 判定${cfg.hitPct}% · 升级${cfg.upgradePct}% · 每处${engine.points(false)}分`;
   $('#live-status').textContent = `本题 ${st.q.id} ${st.q.name}（${st.found.size}/${st.q.answers.length}${st.answerShown ? '，已看答案' : ''}${h?.repeat ? '，重复题' : ''}） · 连续未看答案 ${st.streak}/${engine.upgradeNeed()} · 剩余 ${(remaining / 1000).toFixed(0)} 秒 · 得分 ${st.score}`
     + (DEBUG ? ` · seed=${seed} 已出=${st.history.map(x => x.id + (x.repeat ? '*' : '')).join(',')}` : '');
   // 下拉框不跟着当前题自动跳，否则会覆盖刚选好的题；当前题看上面这行状态
@@ -197,9 +198,9 @@ function forceQuestion(fn) {
   api.update({ level: engine.state.level });
   renderQuestion();
 }
-['lock', 'hintPct', 'hitPct', 'upgradePct'].forEach(id => $('#' + id).addEventListener('input', applyPanel));
+['lock', 'hintPct', 'hitPct', 'upgradePct', 'scorePct'].forEach(id => $('#' + id).addEventListener('input', applyPanel));
 $('#defaults').addEventListener('click', () => {
-  $('#lock').value = 'auto'; ['hintPct', 'hitPct', 'upgradePct'].forEach(id => { $('#' + id).value = 100; }); applyPanel();
+  $('#lock').value = 'auto'; ['hintPct', 'hitPct', 'upgradePct', 'scorePct'].forEach(id => { $('#' + id).value = 100; }); applyPanel();
 });
 $('#go').addEventListener('click', () => forceQuestion(() => engine.goto($('#pick').value)));
 $('#skip').addEventListener('click', () => forceQuestion(() => engine.skip()));
