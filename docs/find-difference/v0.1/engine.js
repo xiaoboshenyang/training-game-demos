@@ -1,7 +1,7 @@
 // 火眼金睛 v0.4 玩法引擎：纯状态，不碰 DOM，便于 node 单测。
 export const LEVEL_LABELS = ['基础', '初阶', '中阶', '高阶', '超凡', '宗师'];
 export const DIFF_COUNT = [3, 5, 6, 7, 8, 9];
-export const FROZEN = { roundMs: 120000, pointsBefore: 10, pointsAfter: 5, upgradeStreak: 2, hintMs: 10000, minHit: 0.09 };
+export const FROZEN = { roundMs: 120000, pointsBefore: 20, pointsAfter: 10, upgradeStreak: 2, hintMs: 10000, minHit: 0.09 };
 
 export function mulberry32(seed) {
   let a = seed >>> 0;
