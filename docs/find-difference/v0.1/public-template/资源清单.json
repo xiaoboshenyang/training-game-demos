@@ -1,0 +1,398 @@
+[
+  {
+    "file": "vendor/games/game-list/garden-walk/style.css",
+    "source": "games\\game-list\\garden-walk\\style.css",
+    "sha256": "f16d7c77ffe403ca9a24b1ac4ccd442b7dbb1c2904d4402463486f76a34443e2",
+    "sourceSha256": "f16d7c77ffe403ca9a24b1ac4ccd442b7dbb1c2904d4402463486f76a34443e2",
+    "bytes": 35265
+  },
+  {
+    "file": "vendor/games/shared/flow-screen/standalone-flow.css",
+    "source": "games\\shared\\flow-screen\\standalone-flow.css",
+    "sha256": "f16ae9b06f85e9fbfdd19f29ab5f05837f71cdd560cc43f9b7ea82e7377c2a7a",
+    "sourceSha256": "f16ae9b06f85e9fbfdd19f29ab5f05837f71cdd560cc43f9b7ea82e7377c2a7a",
+    "bytes": 55068
+  },
+  {
+    "file": "vendor/games/shared/showcase-intro/showcase-intro-screen.css",
+    "source": "games\\shared\\showcase-intro\\showcase-intro-screen.css",
+    "sha256": "604501bd767e7560494060643ae91ab09747d2ecfe6e0883316a3716b97d7324",
+    "sourceSha256": "604501bd767e7560494060643ae91ab09747d2ecfe6e0883316a3716b97d7324",
+    "bytes": 17146
+  },
+  {
+    "file": "vendor/games/shared/showcase-intro/demo-hand.css",
+    "source": "games\\shared\\showcase-intro\\demo-hand.css",
+    "sha256": "0a8c1869fd194cb8817e83bb77b3b8870cd0377048bdd0389184ed2e22128f40",
+    "sourceSha256": "0a8c1869fd194cb8817e83bb77b3b8870cd0377048bdd0389184ed2e22128f40",
+    "bytes": 2904
+  },
+  {
+    "file": "vendor/games/shared/in-game-help/in-game-help.css",
+    "source": "games\\shared\\in-game-help\\in-game-help.css",
+    "sha256": "6248e2e6a318bac228296ebf28c3b51db1d83ccff1d24b8aac59e8eedc8a338f",
+    "sourceSha256": "6248e2e6a318bac228296ebf28c3b51db1d83ccff1d24b8aac59e8eedc8a338f",
+    "bytes": 3806
+  },
+  {
+    "file": "vendor/games/shared/showcase-intro/showcase-intro-screen.js",
+    "source": "games\\shared\\showcase-intro\\showcase-intro-screen.js",
+    "sha256": "0ef83530973ebf3d3cb1940ec46fff47dfed9fddde5fe22ed6bcb09a23496e49",
+    "sourceSha256": "0ef83530973ebf3d3cb1940ec46fff47dfed9fddde5fe22ed6bcb09a23496e49",
+    "bytes": 13974
+  },
+  {
+    "file": "vendor/games/shared/intro-screen/intro-screen.js",
+    "source": "games\\shared\\intro-screen\\intro-screen.js",
+    "sha256": "b8ad9131e74b241a33eb963303469b3278e3f26cac3bd69333e67a58691e005d",
+    "sourceSha256": "b8ad9131e74b241a33eb963303469b3278e3f26cac3bd69333e67a58691e005d",
+    "bytes": 4040
+  },
+  {
+    "file": "vendor/games/shared/utils/standalone-flow-utils.js",
+    "source": "games\\shared\\utils\\standalone-flow-utils.js",
+    "sha256": "d0b29199c2c95b2dcebbc6d571432134eec6f3d29ec90fb91f1eb454512cf2d0",
+    "sourceSha256": "d0b29199c2c95b2dcebbc6d571432134eec6f3d29ec90fb91f1eb454512cf2d0",
+    "bytes": 914
+  },
+  {
+    "file": "vendor/games/shared/intro-screen/hide-inner-intro-on-overlay.js",
+    "source": "games\\shared\\intro-screen\\hide-inner-intro-on-overlay.js",
+    "sha256": "38ce701e1fab9b6e8b831e868148c99c739ac5b6d3f252fcca305624c4071ece",
+    "sourceSha256": "38ce701e1fab9b6e8b831e868148c99c739ac5b6d3f252fcca305624c4071ece",
+    "bytes": 5261
+  },
+  {
+    "file": "vendor/games/shared/intro-topbar/game-intro-topbar.js",
+    "source": "games\\shared\\intro-topbar\\game-intro-topbar.js",
+    "sha256": "3cccc17d1e36c475a9498a23328ce0bd0d627acf70a962bf9648d944853b313f",
+    "sourceSha256": "3cccc17d1e36c475a9498a23328ce0bd0d627acf70a962bf9648d944853b313f",
+    "bytes": 2969
+  },
+  {
+    "file": "vendor/games/shared/intro-topbar/game-intro-topbar.css",
+    "source": "games\\shared\\intro-topbar\\game-intro-topbar.css",
+    "sha256": "b973188c2a3175b6ee7333ee12d146f0c1417a82d0b2a82b87431607dc3ef8e6",
+    "sourceSha256": "b973188c2a3175b6ee7333ee12d146f0c1417a82d0b2a82b87431607dc3ef8e6",
+    "bytes": 4717
+  },
+  {
+    "file": "vendor/games/shared/top-bar/game-top-bar.js",
+    "source": "games\\shared\\top-bar\\game-top-bar.js",
+    "sha256": "0ef257ee93d341b361f9b6e4786bb3d3670160fc94805e8a829c427a46330daf",
+    "sourceSha256": "0ef257ee93d341b361f9b6e4786bb3d3670160fc94805e8a829c427a46330daf",
+    "bytes": 9749
+  },
+  {
+    "file": "vendor/games/shared/top-bar/game-top-bar.css",
+    "source": "games\\shared\\top-bar\\game-top-bar.css",
+    "sha256": "146971ca756e78cd3885b7c2bfa31da06ad19df0f419c0b607935222b990eade",
+    "sourceSha256": "146971ca756e78cd3885b7c2bfa31da06ad19df0f419c0b607935222b990eade",
+    "bytes": 8141
+  },
+  {
+    "file": "vendor/games/shared/session-ui/game-session-ui.js",
+    "source": "games\\shared\\session-ui\\game-session-ui.js",
+    "sha256": "0540ee45d00c100b397e3c65a1cfc93505d4c8c2810a60fb6e05c91363fd9ae3",
+    "sourceSha256": "0540ee45d00c100b397e3c65a1cfc93505d4c8c2810a60fb6e05c91363fd9ae3",
+    "bytes": 11692
+  },
+  {
+    "file": "vendor/games/shared/time-up/game-time-up.js",
+    "source": "games\\shared\\time-up\\game-time-up.js",
+    "sha256": "59e80c805bde4504f47294d87e2dc3e0aab718979372f7a91fce0148ee684482",
+    "sourceSha256": "59e80c805bde4504f47294d87e2dc3e0aab718979372f7a91fce0148ee684482",
+    "bytes": 4773
+  },
+  {
+    "file": "vendor/games/shared/level-up/game-level-up.js",
+    "source": "games\\shared\\level-up\\game-level-up.js",
+    "sha256": "1fb20f5816d225cc6bc0288182a8b91b4f48b05000717b4b14f90ddd5879c7cd",
+    "sourceSha256": "ded481505b71fcd50428c00dfd75c3c0620a2c7f13e5f3bda7abea669d032871",
+    "bytes": 28149
+  },
+  {
+    "file": "vendor/games/shared/feedback-audio/game-feedback-audio.js",
+    "source": "games\\shared\\feedback-audio\\game-feedback-audio.js",
+    "sha256": "b8400f9c3b213f9034aeae1b5bbb0c3888e8f0fd9b7d026358a7e3565ba1da35",
+    "sourceSha256": "b8400f9c3b213f9034aeae1b5bbb0c3888e8f0fd9b7d026358a7e3565ba1da35",
+    "bytes": 7538
+  },
+  {
+    "file": "vendor/games/shared/audio/game-audio-context.js",
+    "source": "games\\shared\\audio\\game-audio-context.js",
+    "sha256": "6b472e71323d69f21e865784ef250df38b3cb4ca6068c798f7a1830e720bf6e9",
+    "sourceSha256": "6b472e71323d69f21e865784ef250df38b3cb4ca6068c798f7a1830e720bf6e9",
+    "bytes": 10265
+  },
+  {
+    "file": "vendor/games/shared/utils/shared-audio-context.js",
+    "source": "games\\shared\\utils\\shared-audio-context.js",
+    "sha256": "af661464eabd02d8decf1d52f0bb4f20c6f6c0676c8dfacf21b82b85e42d3cee",
+    "sourceSha256": "af661464eabd02d8decf1d52f0bb4f20c6f6c0676c8dfacf21b82b85e42d3cee",
+    "bytes": 3110
+  },
+  {
+    "file": "vendor/games/shared/audio/game-audio-prefs.js",
+    "source": "games\\shared\\audio\\game-audio-prefs.js",
+    "sha256": "8ce105f0bb98b2216b2276505a11d98910c09bc7667ea951ae8609abd0e00951",
+    "sourceSha256": "8ce105f0bb98b2216b2276505a11d98910c09bc7667ea951ae8609abd0e00951",
+    "bytes": 11977
+  },
+  {
+    "file": "vendor/games/shared/audio/game-audio-settings.js",
+    "source": "games\\shared\\audio\\game-audio-settings.js",
+    "sha256": "ae741135e45369a949f8e17d412f4e30297910eda294de1d4cdcbe93ccc667e4",
+    "sourceSha256": "ae741135e45369a949f8e17d412f4e30297910eda294de1d4cdcbe93ccc667e4",
+    "bytes": 11696
+  },
+  {
+    "file": "vendor/core/runtime-environment.js",
+    "source": "core\\runtime-environment.js",
+    "sha256": "3b20462231fcb6e591088f63363a9d4c68224684cbbbf220aeee68b2138c6f3a",
+    "sourceSha256": "3b20462231fcb6e591088f63363a9d4c68224684cbbbf220aeee68b2138c6f3a",
+    "bytes": 2804
+  },
+  {
+    "file": "vendor/games/shared/audio/game-sfx.js",
+    "source": "games\\shared\\audio\\game-sfx.js",
+    "sha256": "55fd2d350dd5bfa94c65754a995c7825c10e483553fc097c42d027b5fd71156e",
+    "sourceSha256": "55fd2d350dd5bfa94c65754a995c7825c10e483553fc097c42d027b5fd71156e",
+    "bytes": 26408
+  },
+  {
+    "file": "vendor/games/shared/utils/freeze-layer-animations.js",
+    "source": "games\\shared\\utils\\freeze-layer-animations.js",
+    "sha256": "4f20fe308b474d26d7ebeb5287739a9c2be4cdf327a87da56f0ba8a8ac23a9b3",
+    "sourceSha256": "4f20fe308b474d26d7ebeb5287739a9c2be4cdf327a87da56f0ba8a8ac23a9b3",
+    "bytes": 2224
+  },
+  {
+    "file": "vendor/games/shared/result-page/game-result-page.js",
+    "source": "games\\shared\\result-page\\game-result-page.js",
+    "sha256": "96bc3929fbe0bdec6232d2e8b503b307b8b6e0dc69a3a80bd51572e35c9631d6",
+    "sourceSha256": "b07704caff08c4723544347aea6cdf496531ed48cf3f8d3e59a0f169c398130c",
+    "bytes": 39965
+  },
+  {
+    "file": "vendor/games/shared/utils/game-post-message.js",
+    "source": "games\\shared\\utils\\game-post-message.js",
+    "sha256": "2fea566192a8fdc7c9000c9d34595e3405d2f63525002d3970d31aed1c35fb23",
+    "sourceSha256": "2fea566192a8fdc7c9000c9d34595e3405d2f63525002d3970d31aed1c35fb23",
+    "bytes": 12691
+  },
+  {
+    "file": "vendor/games/shared/in-game-help/replay-policy.js",
+    "source": "games\\shared\\in-game-help\\replay-policy.js",
+    "sha256": "ae5e149815e5bf8eb684a2fceb7a95883eff4243bbb01a6516cf565ff67771f4",
+    "sourceSha256": "ae5e149815e5bf8eb684a2fceb7a95883eff4243bbb01a6516cf565ff67771f4",
+    "bytes": 709
+  },
+  {
+    "file": "vendor/games/shared/level-up/game-level-up.css",
+    "source": "games\\shared\\level-up\\game-level-up.css",
+    "sha256": "4630867cef98c956d0c576c28b78ab7ae1cd8c66250b35e06857def28b81d47a",
+    "sourceSha256": "4630867cef98c956d0c576c28b78ab7ae1cd8c66250b35e06857def28b81d47a",
+    "bytes": 7164
+  },
+  {
+    "file": "vendor/games/shared/time-up/game-time-up.css",
+    "source": "games\\shared\\time-up\\game-time-up.css",
+    "sha256": "8fd2402f6fc7cbec822e7f2a092581967ccd3c6f4377bb68c0dca2fb360a9dca",
+    "sourceSha256": "8fd2402f6fc7cbec822e7f2a092581967ccd3c6f4377bb68c0dca2fb360a9dca",
+    "bytes": 580
+  },
+  {
+    "file": "assets/icon-timer.png",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/icon-timer.png",
+    "bytes": 2971,
+    "sha256": "a26f96c3e08238219924e25d5e80b00d6a96fd0c09ce3751dcfc9bc6740a0dc6",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/icon-score.png",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/icon-score.png",
+    "bytes": 3400,
+    "sha256": "533d39aa3c46e3a1af7f71f03e776e769bbeea64de801a91898c97368134a183",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/icon-level.png",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/icon-level.png",
+    "bytes": 3405,
+    "sha256": "2fa0345c9add783f7fd9a83748501edff3aca309c41d3b4d19c498396db64b50",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/back-arrow.svg",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/back-arrow.svg",
+    "bytes": 358,
+    "sha256": "7244857dce21ec49b8938d802394cbacb5292ec029d5eef5b36b133d18188a53",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/intro-fullscreen-icon.svg",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/intro-fullscreen-icon.svg",
+    "bytes": 1685,
+    "sha256": "fc4dde5ce761861a4051d15a8b152290c5ca754c5169a065fb7a7c33d4aa0063",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/intro-voice-icon.svg",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/intro-voice-icon.svg",
+    "bytes": 714,
+    "sha256": "ad90b19d50ebb558c9c25491bf41037421e6d7009dc63e96afc2ece41e08ed3d",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/finger-click.png",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/finger-click.png",
+    "bytes": 15409,
+    "sha256": "f1503d1501135816db9341801ea7c791ab73d4d1908e84b6945f01c10f96387d",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/audio/countdown-sequence.mp3",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/audio/countdown-sequence.mp3",
+    "bytes": 172239,
+    "sha256": "4b380b6734ca5d11579a470088b77d75d0e069fe93a71677688146f4c837a8bb",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/audio/level-up.mp3",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/audio/level-up.mp3",
+    "bytes": 62116,
+    "sha256": "744829f2e19fbd4490a3eceac7a1b941f5264ba2541b23dcd90f345b4cb45bfa",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/audio/time-up.mp3",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/audio/time-up.mp3",
+    "bytes": 90237,
+    "sha256": "ee25739d6e0f36d2256154fcdd7729ddde7e3a9c2980c27ffa435d1f90ff7261",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/audio/time-out.mp3",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/audio/time-out.mp3",
+    "bytes": 56064,
+    "sha256": "97832b395324d52bbcec83065ccbd0c8f22957652fc6595365387dfad85de9a8",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/audio/success.mp3",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/audio/success.mp3",
+    "bytes": 43008,
+    "sha256": "a23e872d18e936eae81e28b002b521fdd677b63a5da66467a67babb202c721cb",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets/audio/fail.mp3",
+    "source": "https://cdn.keepwork.com/silvermind/games/shared/assets/audio/fail.mp3",
+    "bytes": 49154,
+    "sha256": "0663b3b7a9be7e73dacfb793d4acd93c264f46c611575c518ca5636206221527",
+    "license": "源仓项目资源，未发现单独授权书；仅本项目内部复用，不推断可公开分发。"
+  },
+  {
+    "file": "assets-map.json",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "edc193a38907c46f02d0f95d67d4560ff78af9efcfb9359b849c0c2e3c70ff16",
+    "bytes": 661
+  },
+  {
+    "file": "lifecycle.js",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "02dc51a046a86e86b80d4dd6ca09dbea9bf7e1e89ca65cb812ae8c26bd05e824",
+    "bytes": 1067
+  },
+  {
+    "file": "lifecycle.test.js",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "30fa147dc2739d603536fe63579eaa955a5c07dcf33942faabda879e9cf5ef91",
+    "bytes": 981
+  },
+  {
+    "file": "package.json",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "77bc9889ecfa8faa416be38be227afee825c089c3a4846040408101f1de28e6c",
+    "bytes": 148
+  },
+  {
+    "file": "preview.html",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "f2d683da639a7b446ac882592d5e75f96c476b36dfeb2b90f077f898e284913e",
+    "bytes": 2490
+  },
+  {
+    "file": "template.css",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "daeb9b899a3ef63d8681a26f152ba822dee7a7cb43dd542e72a867cc57272a28",
+    "bytes": 4467
+  },
+  {
+    "file": "template.js",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "719c851bbd73a125d9759e76eb6692675401f0e65e54fbb9b29b1a3b9c580c49",
+    "bytes": 13908
+  },
+  {
+    "file": "vendor/games/resource-manifest.js",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "4ec56edb5e26534c062e9cdf3fd21fbb70a110111e2d9df0867dd38fc89b240f",
+    "bytes": 61
+  },
+  {
+    "file": "vendor/games/shared/utils/resource-loader.js",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "ce5d70b98fc816abce7bc52ca3dd78aa774de8e055ace7c91ab9df5fcfba5276",
+    "bytes": 704
+  },
+  {
+    "file": "vendor/games/shared/utils/shared-assets.js",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "517ffba55917de697fc92e8094d8a614e8215f21fcdfa72c8eed17507a0bd832",
+    "bytes": 1720
+  },
+  {
+    "file": "游戏配置示例.json",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "9560c4f4d1c6ef1d020e02389f8f15fea9d94971b39acc9afa42f1b2f68a88ff",
+    "bytes": 762
+  },
+  {
+    "file": "资源与适配说明.md",
+    "source": "008公共模板新增/本地适配",
+    "sha256": "c3dd44626ecee3532b969f436fd9f1153723f5615dd10564f2be61d5eb9ea0fc",
+    "bytes": 2952
+  },
+  {
+    "file": "mode.js",
+    "source": "008公共模板v1.1模式新增",
+    "sha256": "9b2716dc271c1e851b97743687bee97634b1de34feb04818df8b39b96a06895b",
+    "bytes": 684
+  },
+  {
+    "file": "mode.test.js",
+    "source": "008公共模板v1.1模式新增",
+    "sha256": "1143a44a72db43b19fc62437c010d148a4f96bc768f4fe3edb06cf0dbde6c5d6",
+    "bytes": 820
+  },
+  {
+    "file": "玩法测试配置示例.json",
+    "source": "008公共模板v1.1模式新增",
+    "sha256": "91dac987d312e68da769e89fc6b9464806d07a399f76466c1946f97b17d0d0c7",
+    "bytes": 167
+  },
+  {
+    "file": "feedback.js",
+    "source": "008 public template v1.2",
+    "sha256": "ef26b0ab4aa696cdee0f330e8ad5414a6f25d8c9115d5feff89b6d39853f63cf",
+    "bytes": 648
+  },
+  {
+    "file": "feedback.test.js",
+    "source": "008 public template v1.2",
+    "sha256": "0a823172d5410c2f422f1d21518606b8c1bd382fd2adbd2cc9f38b96444ed4df",
+    "bytes": 819
+  }
+]

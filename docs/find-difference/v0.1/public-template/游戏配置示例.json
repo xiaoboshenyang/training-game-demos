@@ -1,0 +1,23 @@
+{
+  "templateVersion": "1.1.0",
+  "title": "小院散步",
+  "icon": "🏡",
+  "background": "",
+  "ability": "视觉空间记忆",
+  "oneLine": "连接房屋和亭子，注意不要踩到小草",
+  "principles": [
+    "本游戏训练视觉空间记忆，通过记住小草的位置来规划路线。",
+    "视觉空间记忆，是在短时间内记住位置、路线和空间布局的能力。",
+    "到陌生小区时记住走过的路，或记住物品放在哪里，都会用到这项能力。"
+  ],
+  "introAudio": "",
+  "demo": {
+    "video": "",
+    "poster": "",
+    "caption": "连接房屋和亭子，注意不要踩到小草",
+    "color": "#4c7145"
+  },
+  "clock": "internal",
+  "feedbackDurationMs": 1500,
+  "mode": "full"
+}

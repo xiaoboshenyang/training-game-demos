@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {resolveMode,validateConfig,entryFor} from './mode.js';
+assert.equal(resolveMode(),'full');
+assert.throws(()=>resolveMode('other'));
+assert.doesNotThrow(()=>validateConfig({title:'测试游戏'},'playtest'));
+assert.throws(()=>validateConfig({title:'测试游戏'},'full'));
+assert.throws(()=>validateConfig({title:''},'playtest'));
+assert.doesNotThrow(()=>validateConfig({title:'游戏',ability:'记忆',oneLine:'记住位置',principles:['目标','解释','应用']},'full'));
+assert.equal(entryFor('playtest',false),'game');assert.equal(entryFor('playtest',true),'game');
+assert.equal(entryFor('full',false),'countdown-tutorial');assert.equal(entryFor('full',true),'countdown-game');
+console.log('PASS: mode default, required fields, first entry and replay routing');

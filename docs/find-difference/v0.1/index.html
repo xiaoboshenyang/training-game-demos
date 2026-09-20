@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>找找不同 · 本地试玩 v0.1</title><link rel="icon" href="data:,">
+<link rel="stylesheet" href="public-template/template.css"><link rel="stylesheet" href="game.css"></head><body>
+<div id="mount"><p id="loading">图片加载中，请稍候…</p></div>
+<details class="control-panel" id="panel" open><summary>试玩设置 <span id="setting-summary"></span></summary>
+<div class="control-fields">
+  <label>等级 <select id="lock"><option value="auto">自动升降级</option><option value="1">锁定 L1 · 3 处</option><option value="2">锁定 L2 · 5 处</option><option value="3">锁定 L3 · 6 处</option><option value="4">锁定 L4 · 7 处</option><option value="5">锁定 L5 · 8 处</option><option value="6">锁定 L6 · 9 处</option></select></label>
+  <label>指定题目 <select id="pick"></select></label>
+  <button id="go" type="button">出这道题</button>
+  <button id="skip" type="button">换下一题</button>
+  <button id="restart" type="button">重开一局</button>
+</div>
+<div class="control-fields">
+  <label>提醒等待 <input id="hintPct" type="range" min="50" max="200" step="25" value="100"><output id="hintPct-v"></output></label>
+  <label>点击判定范围 <input id="hitPct" type="range" min="50" max="200" step="10" value="100"><output id="hitPct-v"></output></label>
+  <label>升级所需连续题数 <input id="upgradePct" type="range" min="50" max="200" step="50" value="100"><output id="upgradePct-v"></output></label>
+  <button id="defaults" type="button">恢复默认</button>
+</div>
+<div class="control-fields">
+  <label>计时倍速 <select id="speed"><option value="1">1×（正常）</option><option value="2">2×</option><option value="5">5×</option><option value="10">10×</option></select></label>
+  <button id="jump5" type="button">剩余时间跳到 5 秒</button>
+  <button id="showbox" type="button">显示所有判定框</button>
+  <span id="live-status"></span>
+</div>
+<p>计分：查看答案前每处 +10，查看后剩余每处 +5；误点不扣分。等级锁定从下一题生效，其余参数立即生效，升级门槛从本题完成时生效。判定 100% = 登记区域，最小约 56 设计像素。重开保留设置，刷新恢复默认。<b>“指定题目”“换下一题”“倍速”“跳到 5 秒”“判定框”只是测试用，正式游戏里没有。</b></p>
+</details>
+<script type="module" src="app.js"></script></body></html>
