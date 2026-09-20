@@ -1,4 +1,4 @@
-// 找找不同 v0.4 玩法引擎：纯状态，不碰 DOM，便于 node 单测。
+// 火眼金睛 v0.4 玩法引擎：纯状态，不碰 DOM，便于 node 单测。
 export const LEVEL_LABELS = ['基础', '初阶', '中阶', '高阶', '超凡', '宗师'];
 export const DIFF_COUNT = [3, 5, 6, 7, 8, 9];
 export const FROZEN = { roundMs: 120000, pointsBefore: 10, pointsAfter: 5, upgradeStreak: 2, hintMs: 10000, minHit: 0.09 };
@@ -47,7 +47,7 @@ export function createEngine({ bank, seed = Date.now(), settings = {} }) {
     st.q = q; st.found = new Set(); st.answerShown = false; st.before = 0; st.after = 0; st.idle = 0; st.hint = false; st.settled = null;
     st.used.add(q.id); st.lastUsedAt[q.id] = st.seq++;
     st.history.push({ id: q.id, level, repeat, answerUsed: false, before: 0, after: 0, misses: 0, completed: false });
-    if (repeat) console.warn(`[找不同] L${level} 新题已用完，重复出题 ${q.id}`);
+    if (repeat) console.warn(`[火眼金睛] L${level} 新题已用完，重复出题 ${q.id}`);
   }
 
   const cur = () => st.history[st.history.length - 1];

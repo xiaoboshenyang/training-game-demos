@@ -22,7 +22,7 @@ engine = createEngine({ bank: BANK, seed });
 await Promise.all([engine.state.q.a, engine.state.q.b].map(preload))
   .catch(e => { loading.textContent = e.message; throw e; });
 loading.remove();
-Promise.all(BANK.flatMap(q => [q.a, q.b]).map(src => preload(src).catch(e => console.warn('[找不同] ' + e.message))));
+Promise.all(BANK.flatMap(q => [q.a, q.b]).map(src => preload(src).catch(e => console.warn('[火眼金睛] ' + e.message))));
 
 window.__fd = DEBUG ? { engine: () => engine, api: () => api, BANK, hitBoxes, seed } : undefined;
 
@@ -91,7 +91,7 @@ function onTap(pic, e) {
   const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
   if (x < 0 || x > 1 || y < 0 || y > 1) return;
   const res = engine.click(x, y);
-  if (DEBUG) console.debug('[找不同] tap', { x: +x.toFixed(4), y: +y.toFixed(4), ...res });
+  if (DEBUG) console.debug('[火眼金睛] tap', { x: +x.toFixed(4), y: +y.toFixed(4), ...res });
   if (res.type !== 'found') { renderPanelStatus(); return; }
   api.update({ score: engine.state.score });
   floatScore(pic, x, y, res.award);
@@ -103,7 +103,7 @@ function completeNow() {
   const { next, levelUp } = engine.state.settled;
   const ok = api.feedback({ correct: true, score: engine.state.score, level: next, levelUp,
     onComplete: () => { engine.advance(); renderQuestion(); } });
-  if (!ok) console.warn('[找不同] 公共反馈未接受（可能已到时）');
+  if (!ok) console.warn('[火眼金睛] 公共反馈未接受（可能已到时）');
 }
 
 // —— 唯一计时：external，只在 game 状态走表；反馈/升级/暂停停表（公共规范第1节 U4） ——
@@ -130,14 +130,14 @@ function finishRound() {
   engine.end(); pendingComplete = 0;
   const r = engine.result();
   window.__fdLastResult = r;
-  console.info('[找不同] 本局结果', JSON.stringify(r));
+  console.info('[火眼金睛] 本局结果', JSON.stringify(r));
   api.finish({ totalScore: r.totalScore, levels: r.levels });
   renderPanelStatus();
 }
 
 createGameShell({
   mount: $('#mount'), mode: 'playtest',
-  config: { title: '找找不同', clock: 'external', feedbackDurationMs: 1500, templateVersion: '1.2.1' },
+  config: { title: '火眼金睛', clock: 'external', feedbackDurationMs: 1500, templateVersion: '1.2.1' },
   adapter: {
     mount({ container, api: a }) {
       api = a; root = container; container.innerHTML = surfaceHtml;
