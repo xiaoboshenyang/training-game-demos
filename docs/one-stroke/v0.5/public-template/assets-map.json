@@ -1,0 +1,15 @@
+{
+  "icon-timer": "assets/icon-timer.png",
+  "icon-score": "assets/icon-score.png",
+  "icon-level": "assets/icon-level.png",
+  "back-arrow": "assets/back-arrow.svg",
+  "intro-fullscreen-icon": "assets/intro-fullscreen-icon.svg",
+  "intro-voice-icon": "assets/intro-voice-icon.svg",
+  "finger-click": "assets/finger-click.png",
+  "feedback-countdown-sequence": "assets/audio/countdown-sequence.mp3",
+  "feedback-level-up": "assets/audio/level-up.mp3",
+  "feedback-time-up": "assets/audio/time-up.mp3",
+  "feedback-time-out": "assets/audio/time-out.mp3",
+  "feedback-success": "assets/audio/success.mp3",
+  "feedback-fail": "assets/audio/fail.mp3"
+}
