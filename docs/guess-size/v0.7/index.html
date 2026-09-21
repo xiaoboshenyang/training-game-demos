@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>猜大小 · 本地试玩 v0.7</title><link rel="icon" href="assets/icon.png"><link rel="stylesheet" href="public-template/template.css"><link rel="stylesheet" href="game.css"></head><body>
+<main id="mount" aria-label="猜大小游戏"><p class="loading">正在准备物品…</p></main>
+<button id="settings-toggle" aria-expanded="false">试玩设置</button>
+<aside id="settings" hidden><h2>试玩设置</h2><p>游戏会暂停，收起后继续。</p>
+<label>难度模式<select id="mode"><option value="auto">自动升降级</option><option value="1">L1 基础</option><option value="2">L2 初阶</option><option value="3">L3 中阶</option><option value="4">L4 高阶</option><option value="5">L5 超凡</option><option value="6">L6 宗师</option></select></label>
+<label>目标数量 <output id="target-value">100%</output><input id="target-range" type="range" min="75" max="125" step="25" value="100"></label>
+<label>干扰数量 <output id="other-value">100%</output><input id="other-range" type="range" min="50" max="125" step="25" value="100"></label>
+<p id="active-settings"></p><p id="pending-settings">修改在下一题生效。</p>
+<button id="apply">应用并换题</button><button id="reset-settings">恢复默认</button><button id="restart">重开一局</button><button id="fullscreen">全屏 / 退出全屏</button>
+<p class="small">100%为本轮采用值。数量受盘子容量限制，不通过缩小物品塞满画面。重开保留设置，刷新恢复默认。</p></aside>
+<script type="module" src="game.mjs"></script></body></html>
