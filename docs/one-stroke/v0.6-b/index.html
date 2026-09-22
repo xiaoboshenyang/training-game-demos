@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一笔通关 · 备选B（双线简化）</title><link rel="stylesheet" href="./public-template/template.css"><link rel="stylesheet" href="./game.css"></head>
+<body><div id="mount"></div>
+<details id="controls"><summary>试玩面板 <span id="settings-summary">自动 · L1 · 100% / 100%</span></summary>
+<div class="panel">
+<label>等级 <select id="level"><option value="0">自动</option><option value="1">L1 基础</option><option value="2">L2 初阶</option><option value="3">L3 中阶</option><option value="4">L4 高阶</option><option value="5">L5 超凡</option><option value="6">L6 宗师</option></select></label>
+<small>等级：下一题生效；「重开一轮」立即试所选等级。</small>
+<label>白点大小 <output id="size-out">100%</output><input id="size" type="range" min="100" max="150" step="10" value="100"></label>
+<label>吸附宽度 <output id="snap-out">100%</output><input id="snap" type="range" min="100" max="160" step="10" value="100"></label>
+<small>两项即时生效。100%：白点直径48px、命中半径48px／方向±30°。看看走法演示后留在原题自己画，本题不计分；看过即记失败，自己完成后下一题降一级。</small>
+<div><button id="defaults">恢复默认</button><button id="restart-session">重开一轮</button></div>
+<small>备选B · 题库v0.5 · 双线简化 · 箭头从L5起 · 未替换原版 · 公共模板1.2.1 · playtest<br>重开保留设置，刷新全部清空。</small>
+<pre id="metrics"></pre>
+</div></details>
+<div id="load-error" role="alert"></div><script type="module" src="./game.mjs"></script></body></html>

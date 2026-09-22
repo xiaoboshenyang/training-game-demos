@@ -1,0 +1,28 @@
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:"Microsoft YaHei",sans-serif;color:#435466;background:#e8e8e5}
+#mount{position:relative;width:100vw;height:100vh}.game-background{background-color:#f6f5ef;background-size:cover}
+.stroke-game{height:728px;position:relative;user-select:none;touch-action:none}
+.instruction{position:absolute;top:15px;left:160px;right:160px;text-align:center;font-size:27px;font-weight:600;margin:0;color:#526579;pointer-events:none}
+.game-brand{position:absolute;left:38px;top:18px;display:flex;align-items:center;gap:10px;font-size:21px;color:#788794}
+.game-brand img{width:54px;height:54px;object-fit:contain;border-radius:15px}
+#board{position:absolute;top:0;left:0;width:1280px;height:575px;touch-action:none}
+.edge{stroke:#96999d;stroke-width:12;stroke-linecap:round;filter:url(#lineShadow)}.edge.thin{stroke-width:8}
+.edge.walked{stroke:#1680ee}.edge.hinted{stroke:#ecb756}
+.arrow{fill:#667f91;stroke:#f8f7f1;stroke-width:4;stroke-linejoin:round;paint-order:stroke fill}
+.arrow.walked{fill:#fff;stroke:#1680ee}
+.pearl{fill:url(#pearl);filter:url(#pearlShadow);stroke:#f6f7f6;stroke-width:2}
+.tip-ring{fill:none;stroke:#1680ee;stroke-width:5}.hint-ring{fill:none;stroke:#e8b04e;stroke-width:6}
+.actions{position:absolute;left:0;right:0;top:582px;display:flex;justify-content:center;gap:28px}
+.actions button{min-width:190px;height:69px;border:1px solid #d8e3e9;border-radius:21px;background:linear-gradient(#fff,#eef3f5);box-shadow:0 5px 0 #d8e1e5,0 8px 18px #526c7b14;color:#55738c;font:600 27px "Microsoft YaHei";cursor:pointer}
+.actions button:active{transform:translateY(3px);box-shadow:0 2px 0 #d8e1e5}.actions button:disabled{opacity:.45;cursor:default}
+.actions button.pulse{animation:breathe 1.4s ease-in-out infinite}
+@keyframes breathe{50%{box-shadow:0 0 0 8px #ecc46a55,0 5px 0 #d8e1e5}}
+.status{position:absolute;left:120px;right:120px;top:675px;text-align:center;font-size:22px;color:#6d8292;margin:0}
+.progress-label{position:absolute;right:40px;top:26px;font-size:20px;color:#81909a}
+#controls{position:fixed;z-index:1000;right:8px;bottom:7px;width:315px;color:#425367;font-size:13px;box-shadow:0 4px 25px #23374720;border-radius:10px;background:#fffffff0}
+#controls summary{padding:9px;cursor:pointer;font-weight:600}#settings-summary{font-size:10px;font-weight:400}
+.panel{padding:4px 15px 14px;max-height:80vh;overflow:auto}.panel label{display:block;margin:10px 0 4px}.panel input{width:100%;accent-color:#78aaca}.panel output{float:right}.panel small{display:block;line-height:1.6;color:#74818b}
+.panel select,.panel button{font:inherit;border:1px solid #cbd8e0;border-radius:6px;background:white;color:#425367;padding:7px}
+.panel button{margin:10px 8px 8px 0;cursor:pointer}#metrics{font:11px/1.6 monospace;white-space:pre-wrap;margin-bottom:0}#load-error{position:fixed;top:45%;left:20%;right:20%;text-align:center;color:#a34436;background:#fff}
+.session-summary{font:18px/1.5 "Microsoft YaHei";color:#425367;min-width:390px;margin:12px 0 20px}.session-summary p{margin:0 0 12px}.session-summary strong{font-size:30px}.session-summary table{width:100%;border-collapse:collapse;text-align:center}.session-summary th,.session-summary td{padding:5px 14px;border-bottom:1px solid #dce5e9}.session-summary th{font-weight:600;color:#526e84}
+
+.benchmark-score{font-size:20px;color:#64726b;text-align:center;margin-top:12px;}
