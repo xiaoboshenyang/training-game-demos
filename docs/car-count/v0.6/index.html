@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>车来车往 · 本地试玩</title><link rel="icon" href="data:,"><link rel="stylesheet" href="./public-template/template.css"><link rel="stylesheet" href="./game.css"></head>
+<body><div id="mount"><p id="loading">正在准备停车场…</p></div>
+<details id="controls"><summary>试玩设置 <span id="effective">自动 · 基础 · 车速100% · 大小100%</span></summary><div class="panel">
+<label>等级<select id="level"><option value="auto">自动升降级</option><option value="1">L1 基础</option><option value="2">L2 初阶</option><option value="3">L3 中阶</option><option value="4">L4 高阶</option><option value="5">L5 超凡</option><option value="6">L6 宗师</option></select></label>
+<label>车速 <output id="speedValue">100%</output><input id="speed" type="range" min="60" max="150" step="10" value="100"></label>
+<label>车大小 <output id="sizeValue">100%</output><input id="size" type="range" min="80" max="125" step="5" value="100"></label>
+<p>参数在下一题生效；点“按设置重开”立即体验。100%已采用原版车速130%、大小95%。</p>
+<button id="restart">按设置重开</button><button id="reset">恢复默认</button>
+<p id="activeSettings"></p><p id="roundSummary">观察汽车进出，结束后选择停车场剩余数量。</p>
+</div></details><script type="module" src="./game.js"></script></body></html>
