@@ -1,0 +1,224 @@
+.fold-game,
+.fold-game * { box-sizing: border-box; }
+
+.fold-game {
+  position: relative;
+  width: 1280px;
+  height: 728px;
+  display: grid;
+  grid-template-columns: 1160px 120px;
+  overflow: hidden;
+  color: #5c3c2d;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: #f7f3e8;
+  user-select: none;
+}
+
+.fold-board-wrap {
+  position: relative;
+  width: 1160px;
+  height: 728px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 48% 42%, #fffdf7 0%, #f9f5e9 64%, #eee7d8 100%);
+}
+
+.fold-paper-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .24;
+  background-image: repeating-linear-gradient(0deg, transparent 0 3px, #b9aa8d0a 4px 5px),
+    repeating-linear-gradient(90deg, transparent 0 4px, #b9aa8d0a 5px 6px);
+}
+
+.fold-board {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 1160px;
+  height: 728px;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.fold-goal {
+  fill: #e7ddc8;
+  fill-opacity: .68;
+  stroke: #ab987c;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 13 12;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.fold-piece-edge {
+  fill: none;
+  stroke: #503e35;
+  stroke-width: 4.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 1px #51351e23);
+}
+.fold-piece-edge.is-fixed { stroke: #59463a; }
+.fold-piece-edge.is-home { stroke: #628c70; stroke-width: 5; }
+.fold-piece-edge.is-active { stroke: #d89437; stroke-width: 7; }
+.fold-piece-edge.is-hinted { stroke: #447a99; stroke-width: 7; }
+.fold-piece-edge.is-blocked { stroke: #c45043; stroke-width: 8; }
+.fold-game.is-advanced .fold-piece-edge.is-fixed { opacity: 0; }
+.fold-complete-image { display: none; pointer-events: none; }
+.fold-game.is-complete-reveal .fold-complete-image {
+  display: block;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fold-complete-arrive 520ms cubic-bezier(.2, .75, .25, 1) both;
+}
+.fold-game.is-paused .fold-complete-image { animation-play-state: paused; }
+.fold-game.is-complete-reveal .fold-piece {
+  pointer-events: none;
+  animation: fold-pieces-leave 180ms ease-out forwards;
+}
+.fold-game.is-paused .fold-piece { animation-play-state: paused; }
+@keyframes fold-pieces-leave {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes fold-complete-arrive {
+  0% { opacity: .15; transform: scale(.97); filter: drop-shadow(0 0 0 #dba44e00); }
+  55% { opacity: 1; transform: scale(1.012); filter: drop-shadow(0 0 17px #dba44e8c); }
+  100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 3px 5px #694b352b); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fold-game.is-complete-reveal .fold-complete-image {
+    animation: fold-complete-fade 180ms ease-out both;
+  }
+  .fold-game.is-complete-reveal .fold-piece { animation: none; opacity: 0; }
+  @keyframes fold-complete-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+.fold-game.is-complete-reveal .fold-goals,
+.fold-game.is-complete-reveal .fold-hinge-outer,
+.fold-game.is-complete-reveal .fold-hinge-inner,
+.fold-game.is-complete-reveal .fold-hint-ghost,
+.fold-game.is-complete-reveal .fold-instruction { display: none; }
+
+.fold-hit {
+  fill: #000;
+  fill-opacity: .002;
+  cursor: grab;
+  touch-action: none;
+}
+.fold-hit.is-fixed { cursor: default; pointer-events: none; }
+.fold-hit:active { cursor: grabbing; }
+
+.fold-hinge-outer,
+.fold-hinge-inner { pointer-events: none; }
+.fold-hinge-outer {
+  fill: #fff8e8;
+  stroke: #684a3b;
+  stroke-width: 5;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 2px 2px #3b271d38);
+}
+.fold-hinge-inner { fill: #9b6b49; }
+.fold-hint-ghost {
+  fill: #76a9c030;
+  stroke: #377b9a;
+  stroke-width: 7;
+  stroke-dasharray: 15 10;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.fold-instruction {
+  position: absolute;
+  top: 16px;
+  left: 22px;
+  max-width: 880px;
+  min-height: 32px;
+  padding: 7px 15px;
+  border: 1px solid #e3d5bc;
+  border-radius: 17px;
+  background: #fffaf1d9;
+  box-shadow: 0 2px 7px #73533612;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #6c4d3a;
+  pointer-events: none;
+}
+.fold-instruction[data-kind="blocked"] { color: #a13c32; border-color: #dca99b; background: #fff4f0f0; }
+.fold-instruction[data-kind="tip"] { color: #346d82; border-color: #abcad2; background: #f2fbfcf0; }
+.fold-instruction[data-kind="success"] { color: #3e7954; border-color: #add0ac; background: #f4fff4f0; }
+
+.fold-tools {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  width: 120px;
+  height: 728px;
+  border-left: 2px solid #e4d9c7;
+  background: linear-gradient(90deg, #f1ebde 0%, #f7f1e5 20%, #efe7d7 100%);
+  box-shadow: inset 6px 0 11px #806a4a0b;
+}
+.fold-tools-cap {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #a18b70;
+}
+.fold-tool {
+  width: 103px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  border: 2px solid #ae8970;
+  border-radius: 19px;
+  background: linear-gradient(#fffdf5, #f4eadd);
+  box-shadow: 0 4px 0 #b59a80, 0 8px 12px #7350371d;
+  color: #604431;
+  font: inherit;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.fold-tool-icon {
+  display: block;
+  height: 42px;
+  font-family: Arial, sans-serif;
+  font-size: 43px;
+  line-height: 42px;
+  font-weight: 400;
+}
+.fold-hint {
+  border-color: #b9853d;
+  background: linear-gradient(#fff3c9, #eed59c);
+  box-shadow: 0 4px 0 #b2884d, 0 8px 12px #7350371d;
+}
+.fold-bulb { font-size: 32px; color: #be8034; }
+.fold-hint.is-active { outline: 3px dashed #447f9b; outline-offset: 3px; }
+.fold-tool:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 #b59a80; }
+.fold-tool:disabled {
+  opacity: .48;
+  filter: saturate(.55);
+  box-shadow: 0 1px 0 #b59a80;
+  cursor: default;
+}
