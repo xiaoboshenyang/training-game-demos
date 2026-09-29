@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN" data-mode="playtest">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>积木巧配｜24 题本地试玩</title>
+  <link rel="stylesheet" href="./public-template/v1.2/template.css">
+  <link rel="stylesheet" href="./game.css">
+</head>
+<body>
+  <div id="app"></div>
+  <audio id="bgm" src="./assets/BGM-056_opengameart_simple_loop.ogg" preload="auto" loop></audio>
+  <aside id="trialControls" class="trial-controls">
+    <button id="toggleControls" type="button" aria-expanded="false" aria-controls="controlsBody">试玩设置 <span id="controlSummary">自动 · L1 · 100%</span></button>
+    <div id="controlsBody" hidden>
+      <p>切换从下一题生效。100% 是规则稿默认值。</p>
+      <label>等级 <select id="levelMode"><option value="auto">自动升降级</option><option value="1">锁定 L1</option><option value="2">锁定 L2</option><option value="3">锁定 L3</option><option value="4">锁定 L4</option><option value="5">锁定 L5</option><option value="6">锁定 L6</option></select></label>
+      <label>单题时间 <select id="timeScale"><option value="80">80% · 9.6 秒</option><option value="100" selected>100% · 12 秒</option><option value="120">120% · 14.4 秒</option></select></label>
+      <label>干扰相似度 <select id="similarityScale"><option value="80">80% · 更好区分</option><option value="100" selected>100% · 默认</option><option value="120">120% · 更接近答案</option></select></label>
+      <button id="restoreDefaults" type="button">恢复默认</button>
+      <small id="activeSetting" aria-live="polite"></small>
+    </div>
+  </aside>
+  <script type="module" src="./game.js"></script>
+</body>
+</html>

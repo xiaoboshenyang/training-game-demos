@@ -1,0 +1,31 @@
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#35291f}
+#app{position:fixed;inset:0}
+.public-game-shell .game-background,.public-game-shell .game-area{background:#35291f}
+.game-board{position:absolute;inset:0;color:#f5dfb5;font-family:"Microsoft YaHei",sans-serif}
+.zone{position:absolute;top:26px;height:570px;box-sizing:border-box;border:2px solid #f0ddbd;border-radius:15px;background:radial-gradient(circle at 48% 44%,#443226,#35291f 74%);box-shadow:0 6px 18px #21160f46}
+.target-zone{left:28px;width:586px}
+.answer-zone{left:634px;width:618px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;padding:12px}
+.target-zone canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.choice{position:relative;box-sizing:border-box;border:2px solid #c7ad86;border-radius:12px;background:#3c2d22;cursor:pointer;padding:0;overflow:hidden;touch-action:none;min-width:0;min-height:0}
+.choice:hover,.choice:focus-visible{border-color:#ffdb84;background:#4a3624;outline:0;box-shadow:0 0 0 3px #ffd17d44,inset 0 0 15px #ffca6033}
+.choice:active{background:#543a22}
+.choice.used{opacity:.38}
+.choice canvas{display:block;width:100%;height:100%;touch-action:none}
+.letter{position:absolute;z-index:1;top:9px;left:12px;font:bold 36px/1 Arial,sans-serif;color:#ffe5ad;text-shadow:0 2px 3px #28170b;pointer-events:none}
+.rotate-mark{position:absolute;left:19px;bottom:14px;color:#e7c180;font:36px/1 Arial,sans-serif;pointer-events:none}
+.time-track{position:absolute;left:264px;top:632px;width:752px;height:22px;background:#715a42;border-radius:99px;box-shadow:inset 0 3px 5px #1b1009aa;overflow:hidden}
+.time-track>span{display:block;width:100%;height:100%;border-radius:inherit;background:#ffd166;box-shadow:inset 0 2px 3px #ffedaa;transition:width .08s linear}
+.time-track.urgent>span{background:#ffab65}
+.music-button{position:absolute;left:32px;top:620px;min-width:115px;height:48px;border:1px solid #b99567;border-radius:10px;background:#4b3426;color:#f5dfb5;font:20px "Microsoft YaHei",sans-serif;cursor:pointer}
+.music-button:hover,.music-button:focus-visible{border-color:#ffdb84;outline:2px solid #ffdb8488}
+.trial-controls{position:fixed;z-index:99;right:12px;bottom:10px;width:244px;color:#fff0d0;font:14px/1.5 "Microsoft YaHei",sans-serif;filter:drop-shadow(0 3px 10px #130b07aa)}
+.trial-controls button,.trial-controls select{font:inherit}
+#toggleControls{width:100%;padding:8px 10px;border:1px solid #cba36c;border-radius:10px;background:#74442e;color:#fff0d0;cursor:pointer}
+#controlSummary{font-size:12px;white-space:nowrap}
+#controlsBody{box-sizing:border-box;margin-top:5px;padding:12px;border:1px solid #b99265;border-radius:11px;background:#30231deb}
+#controlsBody p{margin:0 0 9px;font-size:12px}
+#controlsBody label{display:block;margin:9px 0}
+#controlsBody select{display:block;box-sizing:border-box;width:100%;margin-top:3px;padding:5px;border:1px solid #bb986e;border-radius:6px;background:#f8e7c8;color:#3b2a20}
+#restoreDefaults{width:100%;padding:6px;border:1px solid #d3ae72;border-radius:6px;background:#854b2b;color:#fff0d0;cursor:pointer}
+#activeSetting{display:block;margin-top:6px}
+@media(max-width:850px){.trial-controls{right:5px;bottom:5px;width:190px;font-size:11px}#controlSummary{font-size:10px}}
