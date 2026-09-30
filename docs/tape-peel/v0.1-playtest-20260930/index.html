@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>一撕到底｜玩法测试 v0.1</title><link rel="icon" href="assets/icon.png"><link rel="stylesheet" href="public-template/template.css"><link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="app"></div>
+<aside id="playtest-tools" aria-label="试玩设置">
+  <button id="tool-toggle" type="button" aria-expanded="false" aria-controls="tool-body">试玩设置</button>
+  <div id="tool-body" hidden>
+    <h2>试玩面板</h2>
+    <label>等级 <select id="level-mode"><option value="auto">自动升级</option><option value="1">锁定 L1 基础</option><option value="2">锁定 L2 初阶</option><option value="3">锁定 L3 中阶</option><option value="4">锁定 L4 高阶</option><option value="5">锁定 L5 超凡</option><option value="6">锁定 L6 宗师</option></select></label>
+    <label>旋转灵敏度 <input id="turn-percent" type="range" min="70" max="140" step="10" value="100"><output id="turn-value">100%</output></label>
+    <label>点按容错 <input id="hit-percent" type="range" min="100" max="160" step="10" value="100"><output id="hit-value">100%</output></label>
+    <p id="effective" role="status"></p>
+    <p>等级从下一题生效；两项手感参数立即生效。100% 是当前灰盒值，规则仍待试玩校准。</p>
+    <button id="restore" type="button">恢复默认</button>
+    <label>选题检查 <select id="pick-question"><option value="">自动抽题</option></select></label>
+    <button id="load-question" type="button">加载所选题（重开本局）</button>
+    <p>题目共 151 道；其中跨级题仍待页面目视复验。</p>
+  </div>
+</aside>
+<script src="assets/three.min.js"></script>
+<script src="question-helpers.js"></script>
+<!-- QUESTION_SCRIPTS_BEGIN -->
+<script src="questions/L1_giftbox_a.js"></script>
+<script src="questions/L1_giftbox_b.js"></script>
+<script src="questions/L1_giftbox_c.js"></script>
+<script src="questions/L1_camera_a.js"></script>
+<script src="questions/L1_camera_b.js"></script>
+<script src="questions/L1_camera_c.js"></script>
+<script src="questions/L1_mailbox_a.js"></script>
+<script src="questions/L1_mailbox_b.js"></script>
+<script src="questions/L1_mailbox_c.js"></script>
+<script src="questions/L1_sailboat_a.js"></script>
+<script src="questions/L1_sailboat_b.js"></script>
+<script src="questions/L1_sailboat_c.js"></script>
+<script src="questions/L1_suitcase_a.js"></script>
+<script src="questions/L1_suitcase_b.js"></script>
+<script src="questions/L1_suitcase_c.js"></script>
+<script src="questions/L1_suitcase_d.js"></script>
+<script src="questions/L2_house_a.js"></script>
+<script src="questions/L2_house_b.js"></script>
+<script src="questions/L2_house_c.js"></script>
+<script src="questions/L2_airplane_a.js"></script>
+<script src="questions/L2_airplane_b.js"></script>
+<script src="questions/L2_airplane_c.js"></script>
+<script src="questions/L2_lighthouse_a.js"></script>
+<script src="questions/L2_lighthouse_b.js"></script>
+<script src="questions/L2_lighthouse_c.js"></script>
+<script src="questions/L2_puppy_a.js"></script>
+<script src="questions/L2_puppy_b.js"></script>
+<script src="questions/L2_puppy_c.js"></script>
+<script src="questions/L3_rocket_a.js"></script>
+<script src="questions/L3_rocket_b.js"></script>
+<script src="questions/L3_rocket_c.js"></script>
+<script src="questions/L3_castle_a.js"></script>
+<script src="questions/L3_castle_b.js"></script>
+<script src="questions/L3_castle_c.js"></script>
+<script src="questions/L3_submarine_a.js"></script>
+<script src="questions/L3_submarine_b.js"></script>
+<script src="questions/L3_submarine_c.js"></script>
+<script src="questions/L3_train_a.js"></script>
+<script src="questions/L3_train_b.js"></script>
+<script src="questions/L3_train_c.js"></script>
+<script src="questions/L4_robot_a.js"></script>
+<script src="questions/L4_robot_b.js"></script>
+<script src="questions/L4_robot_c.js"></script>
+<script src="questions/L4_bear_a.js"></script>
+<script src="questions/L4_bear_b.js"></script>
+<script src="questions/L4_excavator_a.js"></script>
+<script src="questions/L4_excavator_b.js"></script>
+<script src="questions/L4_excavator_c.js"></script>
+<script src="questions/L4_wardrobe_a.js"></script>
+<script src="questions/L4_wardrobe_b.js"></script>
+<script src="questions/L5_truck_a.js"></script>
+<script src="questions/L5_truck_b.js"></script>
+<script src="questions/L5_truck_c.js"></script>
+<script src="questions/L6_chest_a.js"></script>
+<script src="questions/L6_chest_b.js"></script>
+<script src="questions/L6_chest_c.js"></script>
+<script src="questions/L3_bear_trial.js"></script>
+<script src="questions/L4_castle_trial.js"></script>
+<script src="questions/L1_airplane_cross.js"></script>
+<script src="questions/L1_bear_cross2.js"></script>
+<script src="questions/L1_castle_cross2.js"></script>
+<script src="questions/L1_chest_cross2.js"></script>
+<script src="questions/L1_excavator_cross2.js"></script>
+<script src="questions/L1_house_cross2.js"></script>
+<script src="questions/L1_lighthouse_cross.js"></script>
+<script src="questions/L1_puppy_cross2.js"></script>
+<script src="questions/L1_robot_cross2.js"></script>
+<script src="questions/L1_rocket_cross2.js"></script>
+<script src="questions/L1_submarine_cross2.js"></script>
+<script src="questions/L1_train_cross2.js"></script>
+<script src="questions/L1_truck_cross2.js"></script>
+<script src="questions/L1_wardrobe_cross2.js"></script>
+<script src="questions/L2_bear_cross2.js"></script>
+<script src="questions/L2_camera_cross.js"></script>
+<script src="questions/L2_castle_cross2.js"></script>
+<script src="questions/L2_chest_cross2.js"></script>
+<script src="questions/L2_excavator_cross2.js"></script>
+<script src="questions/L2_giftbox_cross2.js"></script>
+<script src="questions/L2_mailbox_cross.js"></script>
+<script src="questions/L2_robot_cross2.js"></script>
+<script src="questions/L2_rocket_cross2.js"></script>
+<script src="questions/L2_sailboat_cross.js"></script>
+<script src="questions/L2_submarine_cross2.js"></script>
+<script src="questions/L2_suitcase_cross2.js"></script>
+<script src="questions/L2_train_cross2.js"></script>
+<script src="questions/L2_truck_cross2.js"></script>
+<script src="questions/L2_wardrobe_cross2.js"></script>
+<script src="questions/L3_airplane_cross.js"></script>
+<script src="questions/L3_camera_cross2.js"></script>
+<script src="questions/L3_chest_cross2.js"></script>
+<script src="questions/L3_excavator_cross2.js"></script>
+<script src="questions/L3_giftbox_cross2.js"></script>
+<script src="questions/L3_house_cross2.js"></script>
+<script src="questions/L3_lighthouse_cross.js"></script>
+<script src="questions/L3_mailbox_cross2.js"></script>
+<script src="questions/L3_puppy_cross2.js"></script>
+<script src="questions/L3_robot_cross2.js"></script>
+<script src="questions/L3_sailboat_cross2.js"></script>
+<script src="questions/L3_suitcase_cross2.js"></script>
+<script src="questions/L3_truck_cross2.js"></script>
+<script src="questions/L3_wardrobe_cross2.js"></script>
+<script src="questions/L4_airplane_cross2.js"></script>
+<script src="questions/L4_camera_cross2.js"></script>
+<script src="questions/L4_chest_cross2.js"></script>
+<script src="questions/L4_giftbox_cross2.js"></script>
+<script src="questions/L4_house_cross2.js"></script>
+<script src="questions/L4_lighthouse_cross2.js"></script>
+<script src="questions/L4_mailbox_cross2.js"></script>
+<script src="questions/L4_puppy_cross2.js"></script>
+<script src="questions/L4_rocket_cross.js"></script>
+<script src="questions/L4_sailboat_cross2.js"></script>
+<script src="questions/L4_submarine_cross.js"></script>
+<script src="questions/L4_suitcase_cross2.js"></script>
+<script src="questions/L4_train_cross.js"></script>
+<script src="questions/L4_truck_cross2.js"></script>
+<script src="questions/L5_airplane_cross2.js"></script>
+<script src="questions/L5_bear_cross.js"></script>
+<script src="questions/L5_camera_cross2.js"></script>
+<script src="questions/L5_castle_cross2.js"></script>
+<script src="questions/L5_chest_cross2.js"></script>
+<script src="questions/L5_excavator_cross2.js"></script>
+<script src="questions/L5_giftbox_cross2.js"></script>
+<script src="questions/L5_house_cross2.js"></script>
+<script src="questions/L5_lighthouse_cross2.js"></script>
+<script src="questions/L5_mailbox_cross2.js"></script>
+<script src="questions/L5_puppy_cross2.js"></script>
+<script src="questions/L5_robot_cross2.js"></script>
+<script src="questions/L5_rocket_cross2.js"></script>
+<script src="questions/L5_sailboat_cross2.js"></script>
+<script src="questions/L5_submarine_cross2.js"></script>
+<script src="questions/L5_suitcase_cross2.js"></script>
+<script src="questions/L5_train_cross2.js"></script>
+<script src="questions/L5_wardrobe_cross2.js"></script>
+<script src="questions/L6_airplane_cross2.js"></script>
+<script src="questions/L6_bear_cross2.js"></script>
+<script src="questions/L6_camera_cross.js"></script>
+<script src="questions/L6_castle_cross2.js"></script>
+<script src="questions/L6_excavator_cross2.js"></script>
+<script src="questions/L6_giftbox_cross2.js"></script>
+<script src="questions/L6_house_cross2.js"></script>
+<script src="questions/L6_lighthouse_cross2.js"></script>
+<script src="questions/L6_mailbox_cross2.js"></script>
+<script src="questions/L6_puppy_cross2.js"></script>
+<script src="questions/L6_robot_cross2.js"></script>
+<script src="questions/L6_rocket_cross2.js"></script>
+<script src="questions/L6_sailboat_cross2.js"></script>
+<script src="questions/L6_submarine_cross2.js"></script>
+<script src="questions/L6_suitcase_cross2.js"></script>
+<script src="questions/L6_train_cross2.js"></script>
+<script src="questions/L6_truck_cross2.js"></script>
+<script src="questions/L6_wardrobe_cross2.js"></script>
+<!-- QUESTION_SCRIPTS_END -->
+<script type="module" src="game.js"></script>
+</body></html>
