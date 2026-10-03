@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>忆启时光 · 私域运营方案</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:,">
+<style>
+:root{--bg:#f3f7f6;--surface:#fff;--ink:#183d42;--muted:#5f767a;--line:#d9e5e4;--teal:#237d7c;--teal-2:#1b6564;--soft:#e7f4f1;--gold:#936118;--gold-bg:#faf0de;--gray:#657378;--gray-bg:#edf1f2;--radius:14px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;font-size:15px;line-height:1.7}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid #66bcb2;outline-offset:3px}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:auto;padding:12px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:34px;height:34px;border-radius:9px;background:var(--teal);display:grid;place-items:center;color:#fff;font-size:18px;flex:none}
+.brand h1{margin:0;font-size:18px;line-height:1.3}
+.brand small{display:block;font-size:11px;color:var(--muted)}
+nav{display:flex;gap:4px;padding:4px;background:#edf4f2;border-radius:9px;overflow-x:auto}
+nav a{padding:6px 12px;border-radius:6px;font-size:13px;color:var(--muted);text-decoration:none;white-space:nowrap}
+nav a.active{background:#fff;color:var(--teal);box-shadow:0 1px 3px #193d4214}
+main{max-width:1240px;margin:auto;padding:28px 32px 64px}
+section.block{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px 36px;margin-bottom:24px}
+.kicker{font-size:12px;letter-spacing:1px;color:var(--muted);margin:0 0 6px}
+h2{font-size:26px;margin:0 0 6px;line-height:1.35}
+h3{font-size:17px;margin:0 0 12px}
+.lead{font-size:16px;color:var(--muted);margin:0}
+.pill{display:inline-block;padding:1px 7px;border-radius:5px;font-size:11px;font-weight:400;line-height:1.7;white-space:nowrap;vertical-align:middle}
+.ok{background:var(--soft);color:var(--teal)}
+.try{background:var(--gold-bg);color:var(--gold)}
+.ask{background:var(--gray-bg);color:var(--gray)}
+.legend{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--muted);flex-wrap:wrap}
+
+/* 开篇 */
+.hero h2{font-size:30px}
+.hero .lead{max-width:860px;margin-top:10px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.trio a{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:12px;padding:18px 20px;background:#fbfdfc;transition:border-color .15s,background .15s}
+.trio a:hover{border-color:#99c9c0;background:#f2faf8}
+.trio .num{font-size:12px;color:var(--teal);letter-spacing:1px}
+.trio strong{display:block;font-size:20px;margin:4px 0 6px}
+.trio p{margin:0;font-size:14px;color:var(--muted)}
+.trio .goal{margin-top:12px;font-size:14px;color:var(--ink)}
+.trio .goal b{color:var(--teal)}
+
+/* 总览图 */
+.diagram-wrap{overflow-x:auto;margin-top:20px;border:1px solid var(--line);border-radius:12px;background:#fbfdfc}
+.diagram{display:block;width:100%;min-width:720px;height:auto}
+.diagram text{font-family:inherit}
+.diagram a{cursor:pointer}
+.diagram a:hover rect.main{fill:#dff1ec}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.note{border-left:3px solid #a6cec3;padding:2px 0 2px 14px;font-size:14px;color:var(--muted)}
+.note b{color:var(--ink);display:block;margin-bottom:2px}
+
+/* 分段 */
+.seg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:22px}
+.seg-num{width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:700;flex:none}
+.seg-title{display:flex;gap:16px;align-items:center}
+.target{background:var(--soft);border-radius:10px;padding:10px 16px;font-size:14px;max-width:340px}
+.target b{display:block;font-size:12px;color:var(--teal);font-weight:400}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px}
+.why>div{border-radius:10px;padding:16px 18px;background:#f6f9f8}
+.why .label{font-size:12px;color:var(--muted);margin-bottom:4px}
+.why p{margin:0;font-size:15px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px}
+.compare>div{border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.compare .old{background:#fafafa}
+.compare .old h3{color:var(--gray)}
+.compare .new{border-color:#a6cec3;background:#f3faf7}
+.compare .new h3{color:var(--teal)}
+.compare ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted)}
+.compare li{margin-bottom:4px}
+
+/* 小程序步骤条 */
+.mini{display:flex;align-items:center;gap:0;flex-wrap:wrap;background:#f0f4f5;border-radius:10px;padding:10px 14px;margin-bottom:26px;font-size:13px;color:var(--gray)}
+.mini .tag{font-size:11px;background:#fff;border:1px solid var(--line);border-radius:5px;padding:1px 7px;margin-right:12px;white-space:nowrap}
+.mini .step{background:#fff;border-radius:6px;padding:4px 10px;white-space:nowrap}
+.mini .step.hl{color:var(--teal);border:1px solid #a6cec3}
+.mini .to{padding:0 8px;color:#9bb0ae}
+.mini .alt{margin:0 8px;font-size:12px}
+
+/* 运营步骤 */
+.ops-title{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ops-title h3{margin:0}
+.timeline{display:grid;gap:0;margin-bottom:26px}
+.day{display:grid;grid-template-columns:110px 1fr 1.25fr;gap:20px;padding:16px 0;border-top:1px solid var(--line)}
+.day:first-child{border-top:0}
+.day .when{font-weight:700;color:var(--teal);font-size:15px}
+.day .when small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.day .what b{display:block;font-size:15px;margin-bottom:2px}
+.day .what p{margin:0;font-size:14px;color:var(--muted)}
+.say{background:#f1f7f5;border-left:2px solid #9bc8bc;border-radius:0 8px 8px 0;padding:10px 14px;font-size:14px;line-height:1.85;white-space:pre-line}
+.say .src{display:block;margin-top:6px;font-size:11px;color:var(--gold)}
+.say.none{background:transparent;border-left:0;padding:0}
+
+.offer{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:26px}
+.offer>div{border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.offer .pack{border-color:#a6cec3;background:#f3faf7}
+.offer ul{margin:0;padding-left:18px;font-size:14px}
+.offer li{margin-bottom:6px}
+.offer p{margin:0 0 8px;font-size:14px;color:var(--muted)}
+
+.source{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:26px}
+.source>div{border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.source b{display:block;margin-bottom:2px}
+.source p{margin:0;font-size:14px;color:var(--muted)}
+.merge{grid-column:1/-1;text-align:center;font-size:14px;color:var(--teal);background:var(--soft);border:0!important;padding:10px!important}
+
+table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:26px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:400;background:#f6f9f8}
+
+.metrics{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-top:18px;border-top:1px dashed var(--line)}
+.metrics .label{font-size:12px;color:var(--muted);margin-right:4px}
+.metric{border:1px solid var(--line);border-radius:8px;padding:5px 12px;font-size:14px;background:#fff}
+.metric small{color:var(--muted);margin-left:6px;font-size:12px}
+.metrics .hint{font-size:12px;color:var(--muted);margin-left:auto}
+
+/* 投入与拍板 */
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cols3>div{border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.cols3 ol,.cols3 ul{margin:0;padding-left:18px;font-size:14px}
+.cols3 li{margin-bottom:8px}
+.decide{border-color:#d9c39b!important;background:#fffaf1}
+.decide h3{color:var(--gold)}
+
+@media(max-width:1000px){
+ .bar{padding:10px 16px;flex-wrap:wrap}
+ main{padding:16px 16px 48px}
+ section.block{padding:22px 18px}
+ .trio,.notes,.cols3{grid-template-columns:1fr}
+ .why,.compare,.offer,.source{grid-template-columns:1fr}
+ .day{grid-template-columns:1fr;gap:8px}
+ .seg-head{flex-direction:column}
+ .target{max-width:none}
+ h2{font-size:22px}.hero h2{font-size:24px}
+ table{display:block;overflow-x:auto}
+ .metrics .hint{margin-left:0}
+}
+
+/* 免费老人步骤 */
+.steps{display:grid;gap:14px;margin-bottom:26px}
+.phase{display:grid;grid-template-columns:96px 1fr;gap:4px 18px;align-items:start}
+.phase-tag{grid-row:span 3;font-size:13px;color:var(--teal);background:var(--soft);border-radius:8px;padding:6px 10px;text-align:center;margin-top:10px}
+.phase-tag.mini-tag{color:var(--gray);background:#f0f4f5}
+.st{grid-column:2;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px 16px;background:#fff}
+.st.key{border-color:#a6cec3;background:#f3faf7}
+.st-n{width:26px;height:26px;border-radius:50%;border:1px solid #a6cec3;color:var(--teal);display:grid;place-items:center;font-size:13px;flex:none;margin-top:1px}
+.st b{font-size:15px}
+.st p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.warn{border:1px solid #d9c39b;background:#fffaf1;border-radius:12px;padding:18px 20px;margin-bottom:26px}
+.warn h3{color:var(--gold);margin-bottom:6px}
+.warn>p{margin:0 0 14px;font-size:14px}
+.warn-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.warn-grid>div{background:#fff;border:1px solid #eadcc0;border-radius:10px;padding:14px 16px}
+.warn-grid p{margin:4px 0 8px;font-size:14px;color:var(--muted)}
+@media(max-width:1000px){.phase{grid-template-columns:1fr}.phase-tag{grid-row:auto;justify-self:start;margin-top:0}.st{grid-column:1}.warn-grid{grid-template-columns:1fr}}
+
+/* 已购家庭双栏 */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.col{border:1px solid var(--line);border-radius:12px;padding:20px 22px;scroll-margin-top:80px}
+.col h3{display:flex;align-items:center;gap:10px;font-size:19px;margin-bottom:14px}
+.seg-dot{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:14px}
+.col dl{display:grid;grid-template-columns:76px 1fr;gap:10px 14px;margin:0 0 16px;font-size:14px}
+.col dt{color:var(--muted);font-size:13px;padding-top:1px}
+.col dd{margin:0}
+.col dd.muted{color:var(--gold)}
+.col ul{margin:0;padding-left:16px}
+.col li{margin-bottom:6px}
+.chain{display:inline-block;background:#f0f4f5;border-radius:6px;padding:2px 8px;color:var(--gray)}
+.col .metrics{padding-top:14px}
+.foot-note{font-size:13px;color:var(--muted);margin:14px 0 0}
+@media(max-width:1000px){.pair{grid-template-columns:1fr}.col dl{grid-template-columns:1fr;gap:2px}.col dd{margin-bottom:8px}}
+
+/* 手机版关系图 */
+.mdiag{display:none;margin-top:16px}
+.mband{border-radius:12px;padding:12px;background:#f3faf7;margin-bottom:10px}
+.mband.grey{background:#f0f4f5}
+.mlabel{display:block;font-size:12px;color:var(--teal);margin-bottom:8px}
+.mband.grey .mlabel{color:var(--gray)}
+.mrow{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;margin-bottom:6px}
+.mrow b{color:var(--teal);font-weight:400}
+.mnode{display:block;text-decoration:none;color:var(--ink);background:#fff;border:1px solid #c5d6d4;border-radius:10px;padding:10px 12px;text-align:center}
+.mnode.main{background:var(--soft);border-color:var(--teal)}
+.mnode b{display:block;font-size:16px}
+.mnode small{color:var(--muted);font-size:12px}
+.marrow{text-align:center;color:var(--teal);font-size:13px;padding:4px 0}
+.mside{text-align:center;font-size:12px;color:var(--gray);border:1px dashed #a1b1b0;border-radius:8px;padding:6px;margin-top:6px}
+.mpair{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center}
+.mswap{text-align:center;color:var(--teal);font-size:18px;line-height:1.2}
+.mswap small{display:block;font-size:10px;color:var(--muted)}
+.mpair .mnode{padding:8px 4px}.mpair .mnode b{font-size:14px;white-space:nowrap}.mpair .mnode small{font-size:11px}
+.mloop{margin-top:10px;font-size:12px;color:var(--teal);text-align:center;background:#fff;border-radius:8px;padding:6px}
+@media(max-width:700px){
+ .diagram-wrap{display:none}.mdiag{display:block}
+ .bar{padding:8px 16px;gap:8px}
+ .brand-mark{display:none}
+ .brand h1{font-size:16px}
+ nav{width:100%;order:3}
+ nav a{flex:1;text-align:center;padding:6px 8px;font-size:12px}
+ .legend{gap:6px}.legend .pill{font-size:10px}
+ html{scroll-padding-top:120px}
+ section.block{padding:18px 16px;margin-bottom:16px;border-radius:12px}
+ h2{font-size:20px}.hero h2{font-size:21px}
+ .lead{font-size:14px}
+ .seg-title{gap:10px;align-items:flex-start}
+ .seg-num{width:36px;height:36px;font-size:16px}
+ .compare>div,.why>div{padding:12px 14px}
+ .st{padding:10px 12px;gap:10px}
+ .st b{font-size:14px}.st p{font-size:13px}
+ .warn{padding:14px}
+ .col{padding:16px;scroll-margin-top:130px}
+ .chain{display:block}
+ .metrics{gap:6px}.metric{font-size:13px;padding:4px 10px}
+}
+@media print{header{position:static}section.block{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+ <div class="bar">
+  <div class="brand"><div class="brand-mark" aria-hidden="true">≈</div><div><h1>忆启时光 · 私域运营方案</h1><small>讨论稿 · 2026.10.03 · 博书</small></div></div>
+  <nav aria-label="章节">
+   <a href="#overview" class="active">总览</a>
+   <a href="#free">① 免费老人</a>
+   <a href="#household">②③ 已购家庭</a>
+  </nav>
+  <div class="legend"><span class="pill ok">已定</span><span class="pill try">待验证</span><span class="pill ask">待拍板</span></div>
+ </div>
+</header>
+
+<main>
+
+<!-- 总览 -->
+<section class="block hero" id="overview">
+ <p class="kicker">一句话</p>
+ <h2>私域服务三类人：免费老人要成交，付费老人要用起来，家人要放心并推荐。</h2>
+ <p class="lead">三类人连成一个圈。小程序负责把人带进来（测评、绑定），私域负责把人留下、转化、带来下一个家庭。</p>
+
+ <div class="diagram-wrap">
+ <svg class="diagram" viewBox="0 0 1120 420" role="img" aria-label="私域三类人与小程序的关系图">
+  <defs>
+   <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#5f9c95"/></marker>
+   <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#a1b1b0"/></marker>
+  </defs>
+  <!-- 小程序带 -->
+  <rect x="16" y="14" width="1088" height="100" rx="12" fill="#f0f4f5"/>
+  <text x="34" y="38" font-size="13" fill="#657378">小程序 · 同事负责（只负责把人带进来）</text>
+  <g font-size="14" fill="#183d42" text-anchor="middle">
+   <rect x="40" y="52" width="130" height="44" rx="8" fill="#fff" stroke="#d9e5e4"/><text x="105" y="79">免费测评</text>
+   <rect x="200" y="52" width="130" height="44" rx="8" fill="#fff" stroke="#d9e5e4"/><text x="265" y="79">看结果</text>
+   <rect x="360" y="52" width="150" height="44" rx="8" fill="#fff" stroke="#a6cec3"/><text x="435" y="79" fill="#237d7c">加微领 7 天计划</text>
+   <rect x="660" y="52" width="130" height="44" rx="8" fill="#fff" stroke="#d9e5e4"/><text x="725" y="79">查看家人</text>
+   <rect x="815" y="52" width="130" height="44" rx="8" fill="#fff" stroke="#d9e5e4"/><text x="880" y="79">设备码绑定</text>
+   <rect x="970" y="52" width="120" height="44" rx="8" fill="#fff" stroke="#d9e5e4"/><text x="1030" y="79">看近况和报告</text>
+  </g>
+  <g stroke="#a1b1b0" stroke-width="1.6" fill="none" marker-end="url(#arg)">
+   <line x1="170" y1="74" x2="198" y2="74"/><line x1="330" y1="74" x2="358" y2="74"/>
+   <line x1="790" y1="74" x2="813" y2="74"/><line x1="945" y1="74" x2="968" y2="74"/>
+  </g>
+  <!-- 私域带 -->
+  <rect x="16" y="134" width="1088" height="276" rx="12" fill="#f3faf7"/>
+  <text x="34" y="158" font-size="13" fill="#237d7c">私域 · 博书负责（企微 1 名管家）</text>
+
+  <g stroke="#5f9c95" stroke-width="1.8" fill="none" marker-end="url(#ar)">
+   <path d="M435,96 L435,130 L200,130 L200,186"/>
+   <path d="M1030,96 L1030,186"/>
+  </g>
+
+  <a href="#free"><rect class="main" x="80" y="190" width="230" height="84" rx="12" fill="#e7f4f1" stroke="#237d7c" stroke-width="1.5"/>
+   <text x="195" y="224" font-size="18" font-weight="700" fill="#183d42" text-anchor="middle">① 免费老人</text>
+   <text x="195" y="252" font-size="13" fill="#5f767a" text-anchor="middle">7 天打卡 → 成交</text></a>
+
+  <rect x="400" y="190" width="200" height="84" rx="12" fill="#fff" stroke="#c5d6d4"/>
+  <text x="500" y="224" font-size="16" font-weight="700" fill="#183d42" text-anchor="middle">设备到手</text>
+  <text x="500" y="252" font-size="13" fill="#5f767a" text-anchor="middle">Pad 三处入口加同一个企微</text>
+
+  <rect x="400" y="314" width="200" height="50" rx="10" fill="#fff" stroke="#a1b1b0" stroke-dasharray="5 4"/>
+  <text x="500" y="344" font-size="14" fill="#183d42" text-anchor="middle">渠道配发 / 子女送礼</text>
+
+  <a href="#paid"><rect class="main" x="660" y="190" width="200" height="84" rx="12" fill="#e7f4f1" stroke="#237d7c" stroke-width="1.5"/>
+   <text x="760" y="224" font-size="18" font-weight="700" fill="#183d42" text-anchor="middle">② 付费老人</text>
+   <text x="760" y="252" font-size="13" fill="#5f767a" text-anchor="middle">上手 → 每周节奏</text></a>
+
+  <a href="#family"><rect class="main" x="920" y="190" width="170" height="84" rx="12" fill="#e7f4f1" stroke="#237d7c" stroke-width="1.5"/>
+   <text x="1005" y="224" font-size="18" font-weight="700" fill="#183d42" text-anchor="middle">③ 家人</text>
+   <text x="1005" y="252" font-size="13" fill="#5f767a" text-anchor="middle">每周近况 → 推荐</text></a>
+
+  <g stroke="#5f9c95" stroke-width="1.8" fill="none">
+   <line x1="310" y1="232" x2="396" y2="232" marker-end="url(#ar)"/>
+   <line x1="500" y1="314" x2="500" y2="278" marker-end="url(#ar)"/>
+   <line x1="600" y1="232" x2="656" y2="232" marker-end="url(#ar)"/>
+   <line x1="864" y1="232" x2="916" y2="232" marker-end="url(#ar)" marker-start="url(#ar)"/>
+   <path d="M1005,274 L1005,392 L195,392 L195,278" marker-end="url(#ar)"/>
+  </g>
+  <g font-size="13" fill="#237d7c" text-anchor="middle">
+   <text x="353" y="222">成交</text>
+   <text x="560" y="300">直接购买</text>
+   <text x="890" y="212">邀请</text>
+   <text x="890" y="258" fill="#5f767a" font-size="11">子女先到</text>
+   <rect x="510" y="380" width="250" height="24" rx="6" fill="#f3faf7"/>
+   <text x="635" y="397">推荐其他家庭 → 进入免费测评</text>
+  </g>
+ </svg>
+ </div>
+
+
+ <div class="mdiag" aria-label="私域三类人关系（手机版）">
+  <div class="mband grey"><span class="mlabel">小程序 · 同事负责</span>
+   <div class="mrow">免费测评 → 看结果 → <b>加微领 7 天计划</b></div>
+   <div class="mrow">查看家人 → 设备码绑定 → 看近况和报告</div>
+  </div>
+  <div class="mband"><span class="mlabel">私域 · 博书负责</span>
+   <a class="mnode main" href="#free"><b>① 免费老人</b><small>7 天打卡 → 成交</small></a>
+   <div class="marrow">↓ 成交</div>
+   <div class="mnode"><b>设备到手</b><small>Pad 三处入口加同一个企微</small></div>
+   <div class="mside">↑ 另一条来路：渠道配发 / 子女送礼，直接购买</div>
+   <div class="marrow">↓</div>
+   <div class="mpair"><a class="mnode main" href="#paid"><b>② 付费老人</b><small>上手 → 每周节奏</small></a><span class="mswap">⇄<small>邀请 / 子女先到</small></span><a class="mnode main" href="#family"><b>③ 家人</b><small>每周近况 → 推荐</small></a></div>
+   <div class="mloop">↺ 家人推荐其他家庭 → 进入免费测评，回到 ①</div>
+  </div>
+ </div>
+ <div class="notes">
+  <div class="note"><b>两条来路，一套服务</b>老人自己成交，或渠道配发、子女送礼直接买。设备到手后走同一套服务。</div>
+  <div class="note"><b>付费老人和家人互相带</b>老人邀请子女绑定；送礼的情况下，子女常常比老人先加微。</div>
+  <div class="note"><b>家人带来下一个家庭</b>被推荐来的家庭从免费测评开始，圈子转起来。</div>
+ </div>
+</section>
+
+<!-- ① 免费老人 -->
+<section class="block" id="free">
+ <div class="seg-head">
+  <div class="seg-title"><div class="seg-num">1</div><div><p class="kicker">私域 · 第一类人</p><h2>免费老人：把免费测评变成 7 天的产品体验</h2></div></div>
+  <div class="target"><b>目标</b>7 天内产生购买意向 <span class="pill try">新方案 · 待验证</span></div>
+ </div>
+
+ <div class="compare">
+  <div class="old"><h3>原方案：加微送小游戏</h3><ul><li>游戏到处都有，老人不会因为它买 Pad</li><li>吸引来的是爱玩的人，不是担心自己脑子的人</li><li>跟刚做完的测评断开，老人的担心没被接住</li></ul></div>
+  <div class="new"><h3>新方案：加微领计划</h3><ul><li>免费给的东西，是要卖的产品的一小块</li><li>老人 7 天里体验的就是 Pad 每天在做的事：测、练、记录</li><li>测评刚勾起的担心，由一份计划接住</li></ul></div>
+ </div>
+
+ <div class="steps">
+  <div class="phase"><span class="phase-tag mini-tag">小程序</span>
+   <div class="st"><span class="st-n">1</span><div><b>免费测评（3 项能力）</b><p>老人本人做，几分钟完成。</p></div></div>
+   <div class="st"><span class="st-n">2</span><div><b>结果页：您的 XX 能力可以多练练</b><p>结果完整显示，不用加微换结果。让老人知道"哪块可以练"。</p></div></div>
+  </div>
+  <div class="phase"><span class="phase-tag">加微</span>
+   <div class="st key"><span class="st-n">3</span><div><b>加企微，领一份按结果配的 7 天练习计划</b><p>加微的理由从"送游戏"换成"领计划"。来的是担心自己脑子的人。</p></div></div>
+  </div>
+  <div class="phase"><span class="phase-tag">私域 7 天</span>
+   <div class="st"><span class="st-n">4</span><div><b>7 天打卡：每天一款对应弱项的体验游戏，管家每天回一句</b><p>每款游戏都说清"因为您的 XX，这款练 XX"。游戏从礼物变成方案。</p></div></div>
+   <div class="st"><span class="st-n">5</span><div><b>第 3 天左右：试讲一段回忆录，生成一篇小文章</b><p>产品最有差别的能力。小文章老人会自己转给孩子，家人就这样进来了。</p></div></div>
+   <div class="st"><span class="st-n">6</span><div><b>第 7 天：给一份坚持记录，再测一次，然后提完整版</b><p>只讲坚持了什么，不讲分数涨了。</p></div></div>
+  </div>
+  <div class="phase"><span class="phase-tag">成交</span>
+   <div class="st key"><span class="st-n">7</span><div><b>成交：完整版 + 零风险承诺 + 赠品</b><p>完整版 = 10 项正式筛查 + 每天自动配计划 + 回忆录 + 子女能看 + 管家。赠品：回忆录第一章做成册。</p></div></div>
+   <div class="st"><span class="st-n">8</span><div><b>老人犹豫"孩子会说我乱花钱"：邀请子女一起看</b><p>经老人同意，把测评结果和回忆录小文章发给子女，转入家人线。</p></div></div>
+  </div>
+ </div>
+
+ <div class="warn">
+  <h3>成交这一步需要特别说明</h3>
+  <p>目前客单价较高（约 9000 元，待核实），老人在微信里直接下单很难。私域能做到的是<b>把意向养出来</b>，最后一步需要配合：</p>
+  <div class="warn-grid">
+   <div><b>方案一：销售跟进</b><p>管家识别出有意向的老人，转给销售电话沟通或上门演示，私域负责前面 7 天的铺垫。</p><span class="pill ask">需配销售人力</span></div>
+   <div><b>方案二：包月 App 版</b><p>先卖低门槛的包月 App 版，7 天体验后直接续上；用顺了再升级 Pad。私域就能闭环成交。</p><span class="pill ask">需产品决策</span></div>
+  </div>
+ </div>
+
+ <div class="metrics"><span class="label">看这几个数</span><span class="metric">加微率<small>结果页 → 加微</small></span><span class="metric">7 天完成率</span><span class="metric">意向率<small>愿意了解完整版</small></span><span class="metric">成交率</span><span class="hint">目标值待首批数据后再定</span></div>
+</section>
+<!-- ②③ 已购家庭 -->
+<section class="block" id="household">
+ <div class="seg-head">
+  <div class="seg-title"><div class="seg-num" style="width:auto;padding:0 12px;border-radius:22px">2·3</div><div><p class="kicker">私域 · 已购家庭</p><h2>付费老人用得起来，家人看得到、找得到人</h2></div></div>
+  <div class="target"><b>状态</b>沿用 9 月 24 日已有方案 <span class="pill ok">暂定沿用</span><br><span style="font-size:12px;color:var(--muted)">本轮只新增：两条来路、要看的数</span></div>
+ </div>
+
+ <div class="source">
+  <div><b>A　自己成交</b><p>从 ① 免费老人转化来，已经测过、练过。</p></div>
+  <div><b>B　渠道配发 / 子女送礼</b><p>直接买到手，前面没经过私域。</p></div>
+  <div class="merge">两条来路在"设备到手"汇合，之后老人和家人的服务完全一样</div>
+ </div>
+
+ <div class="pair">
+  <div class="col" id="paid">
+   <h3><span class="seg-dot">2</span>付费老人</h3>
+   <dl>
+    <dt>目标</dt><dd>每周都在用，不沉默</dd>
+    <dt>老人担心</dt><dd>不会用，坏了不知道找谁</dd>
+    <dt>入口</dt><dd><span class="chain">说明书 / 首次启动 / 首页头像弹层 → 加同一个企微 → 认身份、对设备</span></dd>
+    <dt>私域做什么</dt><dd><ul>
+     <li><b>客服四件事</b>：教功能；处理设备、账号、网络；收 bug；促活</li>
+     <li><b>每周节奏</b>：周一开练，周五回顾；7 天没打开问候一次；有测评提醒、新课程时各发一次。一周最多 3 条</li>
+     <li><b>打标签</b>：身份、活跃（7 天沉默 / 30 天流失）、渠道、是否绑了子女</li>
+     <li><b>经老人同意，邀请子女绑定</b></li>
+    </ul></dd>
+    <dt>还没定</dt><dd class="muted">第一周怎么带上手；什么时候请老人推荐</dd>
+   </dl>
+   <div class="metrics"><span class="label">看这几个数</span><span class="metric">每周使用天数</span><span class="metric">沉默率</span><span class="metric">子女绑定率</span></div>
+  </div>
+
+  <div class="col" id="family">
+   <h3><span class="seg-dot">3</span>家人</h3>
+   <dl>
+    <dt>目标</dt><dd>放心，并推荐其他家庭</dd>
+    <dt>子女担心</dt><dd>钱没白花吧？爸妈用了没、状态好不好？</dd>
+    <dt>从哪来</dt><dd>A 路由老人邀请；B 路送礼的子女本身就是买家，常常比老人先加微；渠道配发的可能没有家人参与</dd>
+    <dt>入口</dt><dd><span class="chain">小程序：查看家人 → 填设备码 → 人工核对 → 看近况和报告</span></dd>
+    <dt>私域做什么</dt><dd><ul>
+     <li><b>客服三件事</b>：每周五发近况链接；答疑；报告原样转发</li>
+     <li><b>近况页分三期</b>：一期是使用天数、时长、报告；二期加每天的训练明细；三期加留言、鼓励</li>
+     <li><b>只报亮点</b>，不给子女看排名，避免焦虑</li>
+    </ul></dd>
+    <dt>还没定</dt><dd class="muted">什么时候、用什么方式请子女推荐其他家庭</dd>
+   </dl>
+   <div class="metrics"><span class="label">看这几个数</span><span class="metric">绑定率</span><span class="metric">周报打开率</span><span class="metric">推荐数</span></div>
+  </div>
+ </div>
+ <p class="foot-note">要看的数都按 A / B 两条来路分开看，对比自己成交和收礼的老人用得怎么样。</p>
+</section>
+
+</main>
+
+<script>
+const links=[...document.querySelectorAll('nav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}})},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>s&&io.observe(s));
+</script>
+</body>
+</html>
