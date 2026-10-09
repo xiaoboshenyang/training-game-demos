@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>心中有数｜本地试玩 v0.3</title><link rel="stylesheet" href="public-template/template.css"><link rel="stylesheet" href="game.css"></head><body>
+<details id="controls"><summary><strong>试玩设置</strong><span id="session-info">正在准备果蔬…</span></summary><div class="settings-body">
+<div class="setting-row"><label>难度 <select id="level-mode"><option value="auto">自动升降级</option><option value="1">锁定基础</option><option value="2">锁定初阶</option><option value="3">锁定中阶</option><option value="4">锁定高阶</option><option value="5">锁定超凡</option><option value="6">锁定宗师</option></select></label><button id="restart">按设置重开本局</button><button id="defaults">恢复默认</button><button id="close-controls">收起并继续</button></div>
+<div class="setting-row"><label>看价时间 <input id="memo-percent" type="range" min="50" max="200" step="25" value="100"><output id="memo-value">100%</output></label><label>作答时间 <input id="answer-percent" type="range" min="50" max="200" step="25" value="100"><output id="answer-value">100%</output></label></div>
+<p>切换难度立即重开本局；时间比例从下一题生效。展开面板自动暂停，收起后继续。锁定等级不升降级，重开保留设置，刷新恢复默认。</p>
+<p>120秒，从基础开始。记好价钱后点“记住了，盖上”，再算篮子总价。作答默认15秒；答错或超时不扣分，揭晓算式后换题。</p>
+<p>分值24／29／34／38／43／48（10-09按博书要求较原30—60整体减20%），升级门槛2／2／2／3／3；连续两题没过降一级。升级门槛仍为试玩候选。</p><p id="session-report" aria-live="polite"></p>
+</div></details><main id="mount" aria-label="心中有数游戏"><p class="loading" role="status">正在准备买菜摊位…</p></main>
+<script type="module" src="game.js"></script></body></html>

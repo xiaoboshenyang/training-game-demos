@@ -1,0 +1,7 @@
+{
+  "title": "心中有数",
+  "mode": "playtest",
+  "clock": "external",
+  "background": "assets/background.png",
+  "feedbackDurationMs": 1000
+}
