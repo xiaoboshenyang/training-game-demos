@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>水到渠成 · 试玩 v0.3</title>
+<link rel="stylesheet" href="public-template/template.css">
+<link rel="icon" href="data:,">
+<style>
+html,body{margin:0;height:100%;background:#efe6d2;font-family:"Microsoft YaHei",system-ui,sans-serif}
+.page{display:flex;flex-direction:column;align-items:center;min-height:100%}
+#mount{flex:none;position:relative;width:min(100vw,calc((100vh - 64px)*1.6));aspect-ratio:1280/800;overflow:hidden}
+.game-background{background:radial-gradient(ellipse 60% 18% at 20% 104%,#f3dfb7 0 60%,transparent 61%),radial-gradient(ellipse 55% 16% at 85% 106%,#f1dcb0 0 60%,transparent 61%),linear-gradient(#fcf7ea,#f8eedb)!important}
+.water-root{position:absolute;inset:0}
+.water-root canvas{position:absolute;left:0;top:0;width:1280px;height:728px;touch-action:none;cursor:crosshair}
+.water-tools{position:absolute;right:22px;top:210px;display:flex;flex-direction:column;gap:16px}
+.water-tools button{width:104px;height:56px;border-radius:28px;border:3px solid #6e3b1f;background:linear-gradient(#a65a33,#7e4022);color:#fff8ec;font:700 22px "Microsoft YaHei",sans-serif;cursor:pointer;box-shadow:0 3px 0 #5a2e17}
+.water-tools button:disabled{opacity:.45;cursor:default}
+.water-tools button.soft{background:#fffaf0;color:#7e4022;box-shadow:0 3px 0 #c9b48f}
+.devbar a.mode{color:#7e4022;font-weight:700}
+.devbar{display:flex;flex-direction:column;gap:5px;padding:8px 12px 16px;font-size:13px;color:#5b4632;max-width:1280px;width:100%;box-sizing:border-box}
+.devrow{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.devrow.head{justify-content:center;gap:14px;font-size:15px;margin-bottom:3px}
+.devrow .lab{min-width:64px;font-weight:700}
+.devbar summary{cursor:pointer;font-weight:700;font-size:14px;padding:4px 0}
+.devbar details>.devrow{margin:4px 0}
+.devbar button{font:inherit;padding:4px 8px;border-radius:7px;border:1px solid #c9b48f;background:#fffaf0;color:#5b4632;cursor:pointer}
+.devbar button.on{background:#7e4022;color:#fff;border-color:#7e4022}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <filter id="goo" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="3.2"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 22 -10"/></filter>
+ <filter id="gooOut" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="3.2"/><feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 22 -4"/></filter>
+</svg>
+<div class="page">
+ <div id="mount"></div>
+ <div class="devbar" id="devbar"></div>
+</div>
+<script src="sim.js"></script>
+<script src="engine.js"></script>
+<script src="levels.js"></script>
+<script type="module" src="game.js"></script>
+</body>
+</html>
