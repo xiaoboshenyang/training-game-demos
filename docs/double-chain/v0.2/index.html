@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN" data-game="double-chain-036" data-rules="0.2"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>双线接龙 · 木桌试玩 v0.2</title><link rel="icon" href="data:,"><link rel="stylesheet" href="public/v1.2/template.css"><link rel="stylesheet" href="game.css"></head>
+<body><div id="app" aria-label="双线接龙"></div>
+<details id="controls"><summary>试玩设置</summary><section>
+<label>等级模式<select id="levelMode"><option value="auto">自动升降级</option><option value="1">锁定 L1 基础</option><option value="2">锁定 L2 初阶</option><option value="3">锁定 L3 中阶</option><option value="4">锁定 L4 高阶</option><option value="5">锁定 L5 超凡</option><option value="6">锁定 L6 宗师</option></select></label>
+<label>单题限时 <output id="timePercent">100%</output><input id="timeScale" type="range" min="50" max="200" step="10" value="100"></label>
+<label>升降级门槛 <output id="gatePercent">100%</output><input id="gateScale" type="range" min="50" max="200" step="50" value="100"></label>
+<p id="effective"></p><p class="hint">百分比基于规则稿。设置从下一题生效；等级切换会重开一局。重开保留设置，刷新恢复默认。</p>
+<div class="actions"><button id="resetSettings">恢复默认</button><button id="restart">重开一局</button></div>
+<details><summary>本局记录</summary><div id="sessionLog"></div></details>
+</section></details><div id="loading">正在准备桌面…</div>
+<script src="data.js"></script><script type="module" src="game.js"></script></body></html>
+
