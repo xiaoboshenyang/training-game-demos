@@ -1,0 +1,94 @@
+{
+  "background": {
+    "file": "background.png",
+    "width": 1586,
+    "height": 992,
+    "mode": "RGB",
+    "bbox": [
+      0,
+      0,
+      1586,
+      992
+    ],
+    "alphaExtrema": null,
+    "edgeMaxAlpha": null,
+    "sha256": "ab1f73f80aeb4906d5665c0ef3887ddbeabeed8a4b3c27ecda82cee44816c95e",
+    "bytes": 2786032
+  },
+  "closed": {
+    "file": "closed.png",
+    "width": 1312,
+    "height": 1199,
+    "mode": "RGBA",
+    "bbox": [
+      98,
+      100,
+      1214,
+      1122
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "edgeMaxAlpha": 1,
+    "sha256": "7867893c5dd5a2f743c7ad28631b9e63891e751b848402047ebcf41d28ac7fe1",
+    "bytes": 1800384
+  },
+  "basket": {
+    "file": "basket.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "bbox": [
+      69,
+      217,
+      1468,
+      955
+    ],
+    "alphaExtrema": [
+      0,
+      254
+    ],
+    "edgeMaxAlpha": 1,
+    "sha256": "78ee6eb323a3fedaa402561013367f7cf6d858a15e65c73b2fd1dbfe2154ba1d",
+    "bytes": 2244577
+  },
+  "open": {
+    "file": "open.png",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "bbox": [
+      76,
+      417,
+      1460,
+      917
+    ],
+    "alphaExtrema": [
+      0,
+      254
+    ],
+    "edgeMaxAlpha": 1,
+    "sha256": "9119322220171e601aea8852cc96d5fd4bdc7233458e7007c69860df1469713c",
+    "bytes": 1986041
+  },
+  "egg": {
+    "file": "egg.png",
+    "width": 1145,
+    "height": 1374,
+    "mode": "RGBA",
+    "bbox": [
+      184,
+      184,
+      960,
+      1214
+    ],
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "edgeMaxAlpha": 0,
+    "sha256": "e19fde5ad39dbb6472b86171a0ef60a9f23943288393e9df17c8d3c4a88adaa6",
+    "bytes": 996988
+  }
+}

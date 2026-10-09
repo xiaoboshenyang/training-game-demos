@@ -1,0 +1,61 @@
+{
+  "ruleVersion": "v0.5_候选",
+  "templateVersion": "1.2.1",
+  "sessionMs": 120000,
+  "feedbackMs": 1500,
+  "eggRatio": 0.4,
+  "successesToUpgrade": [
+    1,
+    1,
+    2,
+    2,
+    2
+  ],
+  "failuresToDowngrade": 2,
+  "levels": [
+    {
+      "label": "基础",
+      "nests": 4,
+      "margin": 3,
+      "award": 30
+    },
+    {
+      "label": "初阶",
+      "nests": 5,
+      "margin": 3,
+      "award": 35
+    },
+    {
+      "label": "中阶",
+      "nests": 6,
+      "margin": 2,
+      "award": 40
+    },
+    {
+      "label": "高阶",
+      "nests": 8,
+      "margin": 2,
+      "award": 50
+    },
+    {
+      "label": "超凡",
+      "nests": 10,
+      "margin": 1,
+      "award": 65
+    },
+    {
+      "label": "宗师",
+      "nests": 12,
+      "margin": 1,
+      "award": 80
+    }
+  ],
+  "visual": {
+    "fadeMs": 80,
+    "emptyMs": 700,
+    "eggHoldMs": 150,
+    "flightMs": 800,
+    "whitePointMs": 1200,
+    "levelUpExitMs": 260
+  }
+}

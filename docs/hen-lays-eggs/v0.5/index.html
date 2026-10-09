@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>母鸡下蛋｜本地试玩 v0.5</title><link rel="stylesheet" href="public-template/template.css"><link rel="stylesheet" href="game.css">
+<body><details id="controls"><summary><strong>试玩参数</strong><span id="active-settings">正在加载素材…</span></summary>
+<div class="settings-body">
+<label>等级 <select id="mode"><option value="auto">自动升降级</option><option value="1">锁定基础</option><option value="2">锁定初阶</option><option value="3">锁定中阶</option><option value="4">锁定高阶</option><option value="5">锁定超凡</option><option value="6">锁定宗师</option></select></label>
+<label>窝数 <input id="nest-percent" type="range" min="50" max="200" step="25" value="100"><output id="nest-value">100%</output></label>
+<label>余量 <input id="margin-percent" type="range" min="0" max="300" step="25" value="100"><output id="margin-value">100%</output></label>
+<label>出蛋比例 <input id="ratio-percent" type="range" min="50" max="150" step="25" value="100"><output id="ratio-value">100%</output></label>
+<button id="restart">按设置重开本局</button><button id="defaults">恢复默认</button>
+<p>设置从下一题生效，重开立即应用。100%为v0.5默认值；窝数取整并限制4–12，余量取整；出蛋比例100%=0.4。必须翻总数随实际窝数和比例重算，再加余量。重开保留设置，刷新恢复默认。</p>
+<p id="pending-settings"></p><p id="session-report"></p></div></details>
+<main id="mount" aria-label="母鸡下蛋游戏"><p class="loading">素材加载中…</p></main><script type="module" src="game.js"></script></body></html>
