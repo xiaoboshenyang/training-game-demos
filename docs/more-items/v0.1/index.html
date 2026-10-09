@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多了哪样｜本地试玩</title>
+<link rel="stylesheet" href="public-template/template.css"><link rel="stylesheet" href="game.css"></head>
+<body><details id="controls"><summary><strong>试玩设置</strong><span id="session-info">正在加载物品…</span></summary><div class="settings-body">
+<label>难度 <select id="level-mode"><option value="auto">自动升降级</option><option value="1">锁定基础</option><option value="2">锁定初阶</option><option value="3">锁定中阶</option><option value="4">锁定高阶</option><option value="5">锁定超凡</option><option value="6">锁定宗师</option></select></label><button id="restart">按设置重开本局</button>
+<p>默认从基础开始，120 秒。看题最多 5 秒，可以点“看好了”；揭开后整题 10 秒。全部找对才得分，点错或超时换题。没有提示。</p>
+<p>计分候选：24／28／32／36／40／44 分；升级需本级累计答对 2／3／3／3／3 题，连续 2 题没过降一级。锁定等级供试难度，刷新恢复自动。</p>
+<p id="session-report"></p></div></details><main id="mount" aria-label="多了哪样游戏"><p class="loading" role="status">正在准备置物架…</p></main>
+<script type="module" src="game.js"></script></body></html>

@@ -1,0 +1,26 @@
+{
+  "title": "多了哪样",
+  "ruleVersion": "v0.1_候选",
+  "sessionMs": 120000,
+  "watchMs": 5000,
+  "coverMs": 1000,
+  "answerMs": 10000,
+  "feedbackMs": 1500,
+  "answerRevealMs": 800,
+  "award": [
+    24,
+    28,
+    32,
+    36,
+    40,
+    44
+  ],
+  "upgrade": [
+    2,
+    3,
+    3,
+    3,
+    3
+  ],
+  "downgrade": 2
+}

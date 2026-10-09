@@ -1,0 +1,268 @@
+{
+  "objects": [
+    {
+      "id": "cup",
+      "label": "杯子",
+      "file": "objects/cup.png",
+      "bbox": [
+        102,
+        132,
+        921,
+        891
+      ]
+    },
+    {
+      "id": "bowl",
+      "label": "饭碗",
+      "file": "objects/bowl.png",
+      "bbox": [
+        102,
+        203,
+        921,
+        820
+      ]
+    },
+    {
+      "id": "teapot",
+      "label": "茶壶",
+      "file": "objects/teapot.png",
+      "bbox": [
+        102,
+        208,
+        921,
+        816
+      ]
+    },
+    {
+      "id": "spoon",
+      "label": "勺子",
+      "file": "objects/spoon.png",
+      "bbox": [
+        117,
+        102,
+        906,
+        921
+      ]
+    },
+    {
+      "id": "toothbrush",
+      "label": "牙刷",
+      "file": "objects/toothbrush.png",
+      "bbox": [
+        141,
+        102,
+        883,
+        921
+      ]
+    },
+    {
+      "id": "toothpaste",
+      "label": "牙膏",
+      "file": "objects/toothpaste.png",
+      "bbox": [
+        108,
+        102,
+        916,
+        921
+      ]
+    },
+    {
+      "id": "soap",
+      "label": "肥皂",
+      "file": "objects/soap.png",
+      "bbox": [
+        102,
+        242,
+        921,
+        781
+      ]
+    },
+    {
+      "id": "towel",
+      "label": "毛巾",
+      "file": "objects/towel.png",
+      "bbox": [
+        102,
+        238,
+        921,
+        785
+      ]
+    },
+    {
+      "id": "key",
+      "label": "钥匙",
+      "file": "objects/key.png",
+      "bbox": [
+        105,
+        102,
+        919,
+        922
+      ]
+    },
+    {
+      "id": "glasses",
+      "label": "眼镜",
+      "file": "objects/glasses.png",
+      "bbox": [
+        102,
+        325,
+        922,
+        698
+      ]
+    },
+    {
+      "id": "wallet",
+      "label": "钱包",
+      "file": "objects/wallet.png",
+      "bbox": [
+        102,
+        160,
+        922,
+        863
+      ]
+    },
+    {
+      "id": "umbrella",
+      "label": "雨伞",
+      "file": "objects/umbrella.png",
+      "bbox": [
+        102,
+        168,
+        922,
+        856
+      ]
+    },
+    {
+      "id": "hat",
+      "label": "帽子",
+      "file": "objects/hat.png",
+      "bbox": [
+        102,
+        202,
+        922,
+        822
+      ]
+    },
+    {
+      "id": "slipper",
+      "label": "拖鞋",
+      "file": "objects/slipper.png",
+      "bbox": [
+        102,
+        226,
+        922,
+        797
+      ]
+    },
+    {
+      "id": "glove",
+      "label": "手套",
+      "file": "objects/glove.png",
+      "bbox": [
+        234,
+        102,
+        789,
+        922
+      ]
+    },
+    {
+      "id": "scarf",
+      "label": "围巾",
+      "file": "objects/scarf.png",
+      "bbox": [
+        143,
+        102,
+        881,
+        922
+      ]
+    },
+    {
+      "id": "clock",
+      "label": "闹钟",
+      "file": "objects/clock.png",
+      "bbox": [
+        204,
+        102,
+        819,
+        922
+      ]
+    },
+    {
+      "id": "lamp",
+      "label": "台灯",
+      "file": "objects/lamp.png",
+      "bbox": [
+        233,
+        102,
+        790,
+        922
+      ]
+    },
+    {
+      "id": "fan",
+      "label": "扇子",
+      "file": "objects/fan.png",
+      "bbox": [
+        102,
+        238,
+        922,
+        786
+      ]
+    },
+    {
+      "id": "hanger",
+      "label": "衣架",
+      "file": "objects/hanger.png",
+      "bbox": [
+        102,
+        267,
+        922,
+        756
+      ]
+    },
+    {
+      "id": "scissors",
+      "label": "剪刀",
+      "file": "objects/scissors.png",
+      "bbox": [
+        102,
+        169,
+        922,
+        854
+      ]
+    },
+    {
+      "id": "comb",
+      "label": "梳子",
+      "file": "objects/comb.png",
+      "bbox": [
+        102,
+        149,
+        922,
+        874
+      ]
+    },
+    {
+      "id": "brush",
+      "label": "刷子",
+      "file": "objects/brush.png",
+      "bbox": [
+        102,
+        208,
+        922,
+        815
+      ]
+    },
+    {
+      "id": "bucket",
+      "label": "水桶",
+      "file": "objects/bucket.png",
+      "bbox": [
+        212,
+        102,
+        812,
+        922
+      ]
+    }
+  ]
+}
